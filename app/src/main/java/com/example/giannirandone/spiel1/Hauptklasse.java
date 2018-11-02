@@ -731,9 +731,8 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
     }.start();    //Ende Counter
 
 
-
-
     //-----
+
 
     public void timeFinished()
     {
