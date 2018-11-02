@@ -21,7 +21,7 @@ import static android.graphics.Color.*;
 public class Hauptklasse extends AppCompatActivity implements View.OnClickListener
 {
 
-
+    int testGitOderSoMac2;
 
     int testGittralala123;
     Button button1;
@@ -350,7 +350,6 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
 
         }
-
 
 
     public void SameNumbers()
