@@ -21,7 +21,6 @@ import static android.graphics.Color.*;
 public class Hauptklasse extends AppCompatActivity implements View.OnClickListener
 {
 
-    //---
 
     Button button1;
     Button button2;
