@@ -23,6 +23,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
 
 
+    int testGittralala123;
     Button button1;
     Button button2;
     Button button3;
