@@ -25,11 +25,12 @@ public class GameOverAusgabeseite extends AppCompatActivity implements View.OnCl
 
         textView_scoreAusgabe = (TextView) findViewById(R.id.textView_scoreAusgabe);
 
-        Intent getScoreUebergabe = getIntent();
-        String scoreIntent = getIntent().getStringExtra("ScoreUebergabeIntent");
-        textView_scoreAusgabe.setText(scoreIntent);
+        Intent scoreAnnahme = getIntent();
+        String scoreUebergabe = scoreAnnahme.getExtras().getString("score");
+        textView_scoreAusgabe.setText(scoreUebergabe);
 
     }
+
 
 
     @Override

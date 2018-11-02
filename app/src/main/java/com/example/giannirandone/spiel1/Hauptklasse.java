@@ -717,12 +717,13 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         {
 
 
-            //String ScoreUebergabe = scoreString;
+            String scoreUebergabe = Integer.toString(score);
+
             Intent ScoreUebergabeIntent = new Intent(Hauptklasse.this, GameOverAusgabeseite.class);
-            getIntent().putExtra("ScoreUebergabeIntent", scoreString);
+            ScoreUebergabeIntent.putExtra("score", scoreUebergabe);
             startActivity(ScoreUebergabeIntent);
 
-            //startActivity(new Intent(Hauptklasse.this, GameOverAusgabeseite.class));
+
 
         }
 
