@@ -21,7 +21,7 @@ import static android.graphics.Color.*;
 public class Hauptklasse extends AppCompatActivity implements View.OnClickListener
 {
 
-    //Teständerung, da Apples geschlossenes System wieder unnötige Probleme macht
+    //Teständerung, da Apples geschlossenes System wieder unnötige Probleme macht - +++ NUMMER 2 +++
 
     Button button1;
     Button button2;
