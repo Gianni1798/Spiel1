@@ -14,6 +14,7 @@ public class GameOverAusgabeseite extends AppCompatActivity implements View.OnCl
 
 
    TextView textView_scoreAusgabe;
+   Button btn_restartGame;
 
 
 
@@ -24,6 +25,7 @@ public class GameOverAusgabeseite extends AppCompatActivity implements View.OnCl
 
 
         textView_scoreAusgabe = (TextView) findViewById(R.id.textView_scoreAusgabe);
+        btn_restartGame = (Button) findViewById(R.id.btn_restartGame);
 
         Intent scoreAnnahme = getIntent();
         String scoreUebergabe = scoreAnnahme.getExtras().getString("score");
@@ -42,9 +44,14 @@ public class GameOverAusgabeseite extends AppCompatActivity implements View.OnCl
         String scoreIntent = getIntent().getStringExtra("ScoreUebergabeIntent");
         textView_scoreAusgabe.setText(scoreIntent);
 
-
+        if (v.equals(btn_restartGame))
+        {
+            Intent restartGame = new Intent(GameOverAusgabeseite.this, Hauptklasse.class);
+            startActivity(restartGame);
+        }
 
     }
+
 
 
 

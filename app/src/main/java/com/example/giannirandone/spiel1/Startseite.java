@@ -71,7 +71,6 @@ public class Startseite extends AppCompatActivity implements View.OnClickListene
 
 
 
-
     }
 
 

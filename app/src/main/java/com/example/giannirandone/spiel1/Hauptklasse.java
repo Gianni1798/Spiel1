@@ -41,14 +41,11 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
     String scoreString;
     TextView textView_time;
     int counter;
-    //int pause_counter;
     TextView textView1;
     TextView textView2;
     TextView textView_Feedback;
     Button pause_btn;
-    //private String = new String scoreString2;
     boolean pause_check = false;
-
 
 
 
