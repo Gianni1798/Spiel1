@@ -40,7 +40,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
     int score;
     String scoreString;
     TextView textView_time;
-    int counter;
+    int counter = 60;
     TextView textView1;
     TextView textView2;
     TextView textView_Feedback;
@@ -73,6 +73,12 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         button3.setOnClickListener((View.OnClickListener)this);
         button4.setOnClickListener((View.OnClickListener)this);
 
+    }
+
+    @Override
+    public void onStart()
+    {
+        super.onStart();
 
         //Erzeuge Zufallszahlen:
 
@@ -100,12 +106,22 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
         //Ende der Überprüfung
 
-        //Setze Score auf Null
-        score = score + 0;
-        scoreString = Integer.toString(score);
+
+        score = 0;
+        scoreString = null;
+
+        if (scoreString == null)
+        {
+            scoreString = Integer.toString(0);
+        }
+
         textView_score.setText(scoreString);
         //Ende Score
 
+        counter = 60;
+        timer.cancel();
+        timer.start();
+        //textView_time.setText(" " + String.valueOf(counter) + " Sec.");
 
 
     }
@@ -519,16 +535,16 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
 
 
-    public void PauseCounter()
+    public void counterCheck()
     {
 
         if (pause_check == false)
         {
 
 
-            if(!(counter+60==0))
+            if(!(counter==0))
                 {
-                textView_time.setText(" " + (String.valueOf(counter + 60)) + " Sec.");
+                textView_time.setText(" " + (String.valueOf(counter)) + " Sec.");
                 }else
                 {
                     textView_time.setText("");
@@ -540,7 +556,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         else
         {
 
-            textView_time.setText(" " + (String.valueOf(counter + 60)) + " Sec.");
+            textView_time.setText(" " + (String.valueOf(counter)) + " Sec.");
             counter -= 0;
 
         }
@@ -558,153 +574,8 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
 
             timeFinished();
-            PauseCounter();
-
-
-            //Rotes Blinken in den letzten 10 Sekunden
-
-            if (counter+61==10)
-            {
-                textView1.setTextColor(Color.RED);
-                textView_score.setTextColor(Color.RED);
-                textView_time.setTextColor(Color.RED);
-                textView2.setTextColor(Color.RED);
-                button1.setTextColor(Color.RED);
-                button2.setTextColor(Color.RED);
-                button3.setTextColor(Color.RED);
-                button4.setTextColor(Color.RED);
-                pause_btn.setTextColor(Color.RED);
-
-
-            }
-            if (counter+61==9)
-            {
-
-                textView1.setTextColor(Color.BLACK);
-                textView_score.setTextColor(Color.BLACK);
-                textView_time.setTextColor(Color.BLACK);
-                textView2.setTextColor(Color.BLACK);
-                button1.setTextColor(Color.BLACK);
-                button2.setTextColor(Color.BLACK);
-                button3.setTextColor(Color.BLACK);
-                button4.setTextColor(Color.BLACK);
-                pause_btn.setTextColor(Color.BLACK);
-
-            }
-            if (counter+61==8)
-            {
-
-                textView1.setTextColor(Color.RED);
-                textView_score.setTextColor(Color.RED);
-                textView_time.setTextColor(Color.RED);
-                textView2.setTextColor(Color.RED);
-                button1.setTextColor(Color.RED);
-                button2.setTextColor(Color.RED);
-                button3.setTextColor(Color.RED);
-                button4.setTextColor(Color.RED);
-                pause_btn.setTextColor(Color.RED);
-
-            }
-            if (counter+61==7)
-            {
-
-                textView1.setTextColor(Color.BLACK);
-                textView_score.setTextColor(Color.BLACK);
-                textView_time.setTextColor(Color.BLACK);
-                textView2.setTextColor(Color.BLACK);
-                button1.setTextColor(Color.BLACK);
-                button2.setTextColor(Color.BLACK);
-                button3.setTextColor(Color.BLACK);
-                button4.setTextColor(Color.BLACK);
-                pause_btn.setTextColor(Color.BLACK);
-
-            }
-            if (counter+61==6)
-            {
-
-                textView1.setTextColor(Color.RED);
-                textView_score.setTextColor(Color.RED);
-                textView_time.setTextColor(Color.RED);
-                textView2.setTextColor(Color.RED);
-                button1.setTextColor(Color.RED);
-                button2.setTextColor(Color.RED);
-                button3.setTextColor(Color.RED);
-                button4.setTextColor(Color.RED);
-                pause_btn.setTextColor(Color.RED);
-
-            }
-            if (counter+61==5)
-            {
-
-                textView1.setTextColor(Color.BLACK);
-                textView_score.setTextColor(Color.BLACK);
-                textView_time.setTextColor(Color.BLACK);
-                textView2.setTextColor(Color.BLACK);
-                button1.setTextColor(Color.BLACK);
-                button2.setTextColor(Color.BLACK);
-                button3.setTextColor(Color.BLACK);
-                button4.setTextColor(Color.BLACK);
-                pause_btn.setTextColor(Color.BLACK);
-
-            }
-            if (counter+61==4)
-            {
-
-                textView1.setTextColor(Color.RED);
-                textView_score.setTextColor(Color.RED);
-                textView_time.setTextColor(Color.RED);
-                textView2.setTextColor(Color.RED);
-                button1.setTextColor(Color.RED);
-                button2.setTextColor(Color.RED);
-                button3.setTextColor(Color.RED);
-                button4.setTextColor(Color.RED);
-                pause_btn.setTextColor(Color.RED);
-
-            }
-            if (counter+61==3)
-            {
-
-                textView1.setTextColor(Color.BLACK);
-                textView_score.setTextColor(Color.BLACK);
-                textView_time.setTextColor(Color.BLACK);
-                textView2.setTextColor(Color.BLACK);
-                button1.setTextColor(Color.BLACK);
-                button2.setTextColor(Color.BLACK);
-                button3.setTextColor(Color.BLACK);
-                button4.setTextColor(Color.BLACK);
-                pause_btn.setTextColor(Color.BLACK);
-
-            }
-            if (counter+61==2)
-            {
-
-                textView1.setTextColor(Color.RED);
-                textView_score.setTextColor(Color.RED);
-                textView_time.setTextColor(Color.RED);
-                textView2.setTextColor(Color.RED);
-                button1.setTextColor(Color.RED);
-                button2.setTextColor(Color.RED);
-                button3.setTextColor(Color.RED);
-                button4.setTextColor(Color.RED);
-                pause_btn.setTextColor(Color.RED);
-
-            }
-            if (counter+61==1)
-            {
-
-                textView1.setTextColor(Color.BLACK);
-                textView_score.setTextColor(Color.BLACK);
-                textView_time.setTextColor(Color.BLACK);
-                textView2.setTextColor(Color.BLACK);
-                button1.setTextColor(Color.BLACK);
-                button2.setTextColor(Color.BLACK);
-                button3.setTextColor(Color.BLACK);
-                button4.setTextColor(Color.BLACK);
-                pause_btn.setTextColor(Color.BLACK);
-
-            }
-
-
+            counterCheck();
+            blinken();
 
 
         }
@@ -731,6 +602,151 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
     //-----
 
+    public void blinken()
+    {
+        //Rotes Blinken in den letzten 10 Sekunden
+
+        if (counter+1==10)
+        {
+            textView1.setTextColor(Color.RED);
+            textView_score.setTextColor(Color.RED);
+            textView_time.setTextColor(Color.RED);
+            textView2.setTextColor(Color.RED);
+            button1.setTextColor(Color.RED);
+            button2.setTextColor(Color.RED);
+            button3.setTextColor(Color.RED);
+            button4.setTextColor(Color.RED);
+            pause_btn.setTextColor(Color.RED);
+
+
+        }
+        if (counter+1==9)
+        {
+
+            textView1.setTextColor(Color.BLACK);
+            textView_score.setTextColor(Color.BLACK);
+            textView_time.setTextColor(Color.BLACK);
+            textView2.setTextColor(Color.BLACK);
+            button1.setTextColor(Color.BLACK);
+            button2.setTextColor(Color.BLACK);
+            button3.setTextColor(Color.BLACK);
+            button4.setTextColor(Color.BLACK);
+            pause_btn.setTextColor(Color.BLACK);
+
+        }
+        if (counter+1==8)
+        {
+
+            textView1.setTextColor(Color.RED);
+            textView_score.setTextColor(Color.RED);
+            textView_time.setTextColor(Color.RED);
+            textView2.setTextColor(Color.RED);
+            button1.setTextColor(Color.RED);
+            button2.setTextColor(Color.RED);
+            button3.setTextColor(Color.RED);
+            button4.setTextColor(Color.RED);
+            pause_btn.setTextColor(Color.RED);
+
+        }
+        if (counter+1==7)
+        {
+
+            textView1.setTextColor(Color.BLACK);
+            textView_score.setTextColor(Color.BLACK);
+            textView_time.setTextColor(Color.BLACK);
+            textView2.setTextColor(Color.BLACK);
+            button1.setTextColor(Color.BLACK);
+            button2.setTextColor(Color.BLACK);
+            button3.setTextColor(Color.BLACK);
+            button4.setTextColor(Color.BLACK);
+            pause_btn.setTextColor(Color.BLACK);
+
+        }
+        if (counter+1==6)
+        {
+
+            textView1.setTextColor(Color.RED);
+            textView_score.setTextColor(Color.RED);
+            textView_time.setTextColor(Color.RED);
+            textView2.setTextColor(Color.RED);
+            button1.setTextColor(Color.RED);
+            button2.setTextColor(Color.RED);
+            button3.setTextColor(Color.RED);
+            button4.setTextColor(Color.RED);
+            pause_btn.setTextColor(Color.RED);
+
+        }
+        if (counter+1==5)
+        {
+
+            textView1.setTextColor(Color.BLACK);
+            textView_score.setTextColor(Color.BLACK);
+            textView_time.setTextColor(Color.BLACK);
+            textView2.setTextColor(Color.BLACK);
+            button1.setTextColor(Color.BLACK);
+            button2.setTextColor(Color.BLACK);
+            button3.setTextColor(Color.BLACK);
+            button4.setTextColor(Color.BLACK);
+            pause_btn.setTextColor(Color.BLACK);
+
+        }
+        if (counter+1==4)
+        {
+
+            textView1.setTextColor(Color.RED);
+            textView_score.setTextColor(Color.RED);
+            textView_time.setTextColor(Color.RED);
+            textView2.setTextColor(Color.RED);
+            button1.setTextColor(Color.RED);
+            button2.setTextColor(Color.RED);
+            button3.setTextColor(Color.RED);
+            button4.setTextColor(Color.RED);
+            pause_btn.setTextColor(Color.RED);
+
+        }
+        if (counter+1==3)
+        {
+
+            textView1.setTextColor(Color.BLACK);
+            textView_score.setTextColor(Color.BLACK);
+            textView_time.setTextColor(Color.BLACK);
+            textView2.setTextColor(Color.BLACK);
+            button1.setTextColor(Color.BLACK);
+            button2.setTextColor(Color.BLACK);
+            button3.setTextColor(Color.BLACK);
+            button4.setTextColor(Color.BLACK);
+            pause_btn.setTextColor(Color.BLACK);
+
+        }
+        if (counter+1==2)
+        {
+
+            textView1.setTextColor(Color.RED);
+            textView_score.setTextColor(Color.RED);
+            textView_time.setTextColor(Color.RED);
+            textView2.setTextColor(Color.RED);
+            button1.setTextColor(Color.RED);
+            button2.setTextColor(Color.RED);
+            button3.setTextColor(Color.RED);
+            button4.setTextColor(Color.RED);
+            pause_btn.setTextColor(Color.RED);
+
+        }
+        if (counter+1==1)
+        {
+
+            textView1.setTextColor(Color.BLACK);
+            textView_score.setTextColor(Color.BLACK);
+            textView_time.setTextColor(Color.BLACK);
+            textView2.setTextColor(Color.BLACK);
+            button1.setTextColor(Color.BLACK);
+            button2.setTextColor(Color.BLACK);
+            button3.setTextColor(Color.BLACK);
+            button4.setTextColor(Color.BLACK);
+            pause_btn.setTextColor(Color.BLACK);
+
+        }
+    }
 
     public void timeFinished()
     {
@@ -738,7 +754,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         //textView_time = Integer.toString(counter);
 
 
-        if (counter+60 == 0)
+        if (counter == 0)
         {
 
             counter = counter-0;
