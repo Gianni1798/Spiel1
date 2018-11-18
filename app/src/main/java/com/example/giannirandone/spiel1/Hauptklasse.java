@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import java.lang.Object;
 
 
 import java.time.chrono.Chronology;
@@ -46,6 +47,8 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
     TextView textView_Feedback;
     Button pause_btn;
     boolean pause_check = false;
+    private static final long startTimeInMillis = 60000;
+    private long timeLeftInMillis = startTimeInMillis;
 
 
 
@@ -112,16 +115,18 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
         if (scoreString == null)
         {
-            scoreString = Integer.toString(0);
+            scoreString = Integer.toString(score);
         }
 
         textView_score.setText(scoreString);
         //Ende Score
 
-        counter = 60;
+        //counter = 60;
+        //timer.purge();
         timer.cancel();
+        resetTimer();
         timer.start();
-        //textView_time.setText(" " + String.valueOf(counter) + " Sec.");
+        textView_time.setText(" " + String.valueOf(counter) + " Sec.");
 
 
     }
@@ -557,7 +562,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         {
 
             textView_time.setText(" " + (String.valueOf(counter)) + " Sec.");
-            counter -= 0;
+            timeFinished();
 
         }
 
@@ -565,13 +570,13 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
     }
 
     //Counter:
-
-    final CountDownTimer timer = new CountDownTimer(61000, 1000)
+    //mm von 61k auf 60k setzen!
+    CountDownTimer timer = new CountDownTimer(timeLeftInMillis, 1000)
     {
 
         public void onTick(long millisUntilFinished)
         {
-
+            timeLeftInMillis = millisUntilFinished;
 
             timeFinished();
             counterCheck();
@@ -586,6 +591,8 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         {
 
 
+            resetTimer();
+
             String scoreUebergabe = Integer.toString(score);
 
             Intent ScoreUebergabeIntent = new Intent(Hauptklasse.this, GameOverAusgabeseite.class);
@@ -598,6 +605,11 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
 
     }.start();    //Ende Counter
+
+    private void resetTimer()
+    {
+        timeLeftInMillis = startTimeInMillis;
+    }
 
 
     //-----
@@ -759,6 +771,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
             counter = counter-0;
             timer.cancel();
+            resetTimer();
             timer.onFinish();
 
         }
