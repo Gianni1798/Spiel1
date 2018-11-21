@@ -6,6 +6,7 @@ import android.net.wifi.p2p.WifiP2pManager;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -130,6 +131,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
 
     }
+
 
 
 
@@ -567,6 +569,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         }
 
 
+
     }
 
     //Counter:
@@ -582,7 +585,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
             counterCheck();
             blinken();
 
-
+            Log.e(Hauptklasse.class.getSimpleName(), "bla");
         }
 
 
@@ -777,6 +780,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         }
 
 
+        //Log.e(Hauptklasse.class.getSimpleName(), "bla");
 
     }
 
