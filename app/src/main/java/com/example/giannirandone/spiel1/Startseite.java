@@ -3,6 +3,7 @@ package com.example.giannirandone.spiel1;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -45,6 +46,13 @@ public class Startseite extends AppCompatActivity implements View.OnClickListene
         btn_Einstellungen.setOnClickListener(this);
     }
 
+    public void onStart()
+    {
+        super.onStart();
+
+
+
+    }
 
     public void onClick (View e)
     {

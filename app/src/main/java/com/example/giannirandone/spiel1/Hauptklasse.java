@@ -48,9 +48,8 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
     TextView textView_Feedback;
     Button pause_btn;
     boolean pause_check = false;
-    private static final long startTimeInMillis = 60000;
+    private static long startTimeInMillis = 61000; //private static final long
     private long timeLeftInMillis = startTimeInMillis;
-
 
 
 
@@ -112,23 +111,21 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
 
         score = 0;
-        scoreString = null;
+        scoreString = Integer.toString(score);
 
-        if (scoreString == null)
-        {
-            scoreString = Integer.toString(score);
-        }
 
         textView_score.setText(scoreString);
         //Ende Score
 
-        //counter = 60;
+        counter = 60;
         //timer.purge();
         timer.cancel();
         resetTimer();
         timer.start();
         textView_time.setText(" " + String.valueOf(counter) + " Sec.");
 
+        startTimeInMillis = 61000;
+        timeLeftInMillis = startTimeInMillis;
 
     }
 
@@ -588,11 +585,8 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
             Log.e(Hauptklasse.class.getSimpleName(), "bla");
         }
 
-
-
         public void onFinish()
         {
-
 
             resetTimer();
 
@@ -602,12 +596,11 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
             ScoreUebergabeIntent.putExtra("score", scoreUebergabe);
             startActivity(ScoreUebergabeIntent);
 
-
-
         }
 
 
     }.start();    //Ende Counter
+
 
     private void resetTimer()
     {
@@ -771,12 +764,9 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
         if (counter == 0)
         {
-
             counter = counter-0;
             timer.cancel();
-            resetTimer();
             timer.onFinish();
-
         }
 
 
