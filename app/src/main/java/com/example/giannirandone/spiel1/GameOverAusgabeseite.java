@@ -43,7 +43,6 @@ public class GameOverAusgabeseite extends AppCompatActivity implements View.OnCl
         textView_scoreAusgabe.setText(scoreIntent);
 
 
-
     }
 
 
