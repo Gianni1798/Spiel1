@@ -79,6 +79,12 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
     }
 
     @Override
+    public void onBackPressed()
+    {
+        //Deaktiviert den Backward-Navigation-Button
+    }
+
+    @Override
     public void onStart()
     {
         super.onStart();
@@ -582,7 +588,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
             counterCheck();
             blinken();
 
-            Log.e(Hauptklasse.class.getSimpleName(), "bla");
+            //Log.e(Hauptklasse.class.getSimpleName(), "bla");
         }
 
         public void onFinish()
@@ -593,8 +599,10 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
             String scoreUebergabe = Integer.toString(score);
 
             Intent ScoreUebergabeIntent = new Intent(Hauptklasse.this, GameOverAusgabeseite.class);
+            ScoreUebergabeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             ScoreUebergabeIntent.putExtra("score", scoreUebergabe);
             startActivity(ScoreUebergabeIntent);
+            finish();
 
         }
 

@@ -46,13 +46,6 @@ public class Startseite extends AppCompatActivity implements View.OnClickListene
         btn_Einstellungen.setOnClickListener(this);
     }
 
-    public void onStart()
-    {
-        super.onStart();
-
-
-
-    }
 
     public void onClick (View e)
     {
@@ -63,7 +56,9 @@ public class Startseite extends AppCompatActivity implements View.OnClickListene
         {
 
             Intent i = new Intent(Startseite.this, Hauptklasse.class);
+            //i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(i);
+            //finish();
 
         }
 
