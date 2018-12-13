@@ -54,6 +54,7 @@ public class GameOverAusgabeseite extends AppCompatActivity implements View.OnCl
         String scoreIntent = getIntent().getStringExtra("ScoreUebergabeIntent");
         textView_scoreAusgabe.setText(scoreIntent);
 
+      /*
         if ((v.equals(btn_restartGame)))
         {
 
@@ -63,7 +64,7 @@ public class GameOverAusgabeseite extends AppCompatActivity implements View.OnCl
             finish();
 
         }
-
+      */
 
     }
 

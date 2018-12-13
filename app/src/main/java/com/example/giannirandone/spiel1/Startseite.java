@@ -46,7 +46,6 @@ public class Startseite extends AppCompatActivity implements View.OnClickListene
         btn_Einstellungen.setOnClickListener(this);
     }
 
-
     public void onClick (View e)
     {
 

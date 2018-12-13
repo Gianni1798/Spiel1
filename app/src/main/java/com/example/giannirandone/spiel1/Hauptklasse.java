@@ -615,7 +615,6 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         timeLeftInMillis = startTimeInMillis;
     }
 
-
     //-----
 
     public void blinken()
