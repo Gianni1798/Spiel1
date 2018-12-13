@@ -24,7 +24,6 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 {
 
 
-
     Button button1;
     Button button2;
     Button button3;
@@ -51,7 +50,6 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
     private static long startTimeInMillis = 61000; //private static final long
     private long timeLeftInMillis = startTimeInMillis;
     boolean pause_onStart = true;
-
 
 
     @Override
