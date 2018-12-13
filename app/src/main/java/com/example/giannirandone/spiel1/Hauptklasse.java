@@ -50,6 +50,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
     boolean pause_check = false;
     private static long startTimeInMillis = 61000; //private static final long
     private long timeLeftInMillis = startTimeInMillis;
+    boolean pause_onStart = true;
 
 
 
@@ -124,6 +125,13 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         //Ende Score
 
         counter = 60;
+
+        //Pause
+
+        pause_onStart = true;
+
+        //Pause-Ende
+
         //timer.purge();
         timer.cancel();
         resetTimer();
@@ -584,6 +592,8 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         {
             timeLeftInMillis = millisUntilFinished;
 
+            pause_onStart = true;
+
             timeFinished();
             counterCheck();
             blinken();
@@ -792,7 +802,6 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
     {
 
 
-
         if (pause_check == false)
         {
 
@@ -813,6 +822,8 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
             button4.setCursorVisible(false);
             button4.setEnabled(false);
 
+            pause_onStart = false;
+
         }
         else
             {
@@ -820,6 +831,8 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
             pause_check = false;
             pause_btn.setText("II");
+
+            if(!(pause_onStart==true))
             timer.start();
 
             button1.setCursorVisible(true);
