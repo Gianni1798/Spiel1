@@ -111,28 +111,19 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         //Ende Zufallszahlen
 
         //Überprüfe ob Zufallszahlen evtl. gleich sind
-
         SameNumbers();
 
         //Ende der Überprüfung
-
-
         score = 0;
         scoreString = Integer.toString(score);
-
-
         textView_score.setText(scoreString);
+
         //Ende Score
 
         counter = 60;
 
-        //Pause
-
         pause_onStart = true;
 
-        //Pause-Ende
-
-        //timer.purge();
         timer.cancel();
         resetTimer();
         timer.start();
@@ -145,10 +136,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
 
 
-
-
     @Override
-
 
     public void onClick (View v)
         {
@@ -550,9 +538,6 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
     }
 
 
-
-
-
     public void counterCheck()
     {
 
@@ -584,21 +569,18 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
     }
 
     //Counter:
-    //mm von 61k auf 60k setzen!
+
     CountDownTimer timer = new CountDownTimer(timeLeftInMillis, 1000)
     {
 
         public void onTick(long millisUntilFinished)
         {
             timeLeftInMillis = millisUntilFinished;
-
             pause_onStart = true;
 
             timeFinished();
             counterCheck();
             blinken();
-
-            //Log.e(Hauptklasse.class.getSimpleName(), "bla");
         }
 
         public void onFinish()
@@ -625,7 +607,6 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         timeLeftInMillis = startTimeInMillis;
     }
 
-    //-----
 
     public void blinken()
     {
@@ -776,9 +757,6 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
     public void timeFinished()
     {
 
-        //textView_time = Integer.toString(counter);
-
-
         if (counter == 0)
         {
             counter = counter-0;
@@ -786,14 +764,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
             timer.onFinish();
         }
 
-
-        //Log.e(Hauptklasse.class.getSimpleName(), "bla");
-
     }
-
-    //-----
-
-
 
 
     //Pause-Button
