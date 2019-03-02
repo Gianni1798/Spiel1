@@ -23,15 +23,6 @@ public class Startseite extends AppCompatActivity implements View.OnClickListene
     Button button2;
     Button button3;
     Button button4;
-    int zufallszahl;
-    String zufallszahlString;
-    int zufallszahl2;
-    String zufallszahlString2;
-    int zufallszahl3;
-    String zufallszahlString3;
-    int zufallszahl4;
-    String zufallszahlString4;
-
 
 
     @Override
@@ -50,7 +41,6 @@ public class Startseite extends AppCompatActivity implements View.OnClickListene
     {
 
 
-
         if (e.equals(btn_SpielStarten))
         {
 
@@ -64,17 +54,12 @@ public class Startseite extends AppCompatActivity implements View.OnClickListene
         if (e.equals(btn_Einstellungen))
         {
 
-            startActivity(new Intent(Startseite.this, Einstellungen.class));
+            startActivity(new Intent(Startseite.this, Settings.class));
 
         }
 
 
-
-
-
-
     }
-
 
 
 }

@@ -1,6 +1,7 @@
 package com.example.giannirandone.spiel1;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.os.CountDownTimer;
@@ -127,8 +128,9 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         /*
         Problembehebung:
         Wenn Activity im Pause-Modus gestartet wird,
-         dass der Timer nun nicht mehr im Hintergrund bereits startet
+        dass der Timer nun nicht mehr bereits im Hintergrund startet
         */
+
         if (pause_onStart==true)
         timer.start();
 
@@ -596,6 +598,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
             Intent ScoreUebergabeIntent = new Intent(Hauptklasse.this, GameOverAusgabeseite.class);
             ScoreUebergabeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             ScoreUebergabeIntent.putExtra("score", scoreUebergabe);
+
             startActivity(ScoreUebergabeIntent);
             finish();
 
@@ -829,6 +832,14 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
     //Ende Pause-Button
 
+    @Override
+    protected void onStop()
+    {
+        super.onStop();
+
+        //---
+
+    }
 
 
 }

@@ -1,6 +1,7 @@
 package com.example.giannirandone.spiel1;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +15,7 @@ public class GameOverAusgabeseite extends AppCompatActivity implements View.OnCl
 
 
    TextView textView_scoreAusgabe;
+   TextView textViewHighscoreAusgabe;
    Button btn_restartGame;
 
 
@@ -25,6 +27,7 @@ public class GameOverAusgabeseite extends AppCompatActivity implements View.OnCl
 
 
         textView_scoreAusgabe = (TextView) findViewById(R.id.textView_scoreAusgabe);
+        textViewHighscoreAusgabe = (TextView) findViewById(R.id.textViewHighscoreAusgabe);
         btn_restartGame = (Button) findViewById(R.id.btn_restartGame);
 
         Intent scoreAnnahme = getIntent();
@@ -38,8 +41,8 @@ public class GameOverAusgabeseite extends AppCompatActivity implements View.OnCl
     {
         //(Deaktiviert den Backward-Navigation-Button)
 
-        //Hier: Provisorische Restart-Anwendung in Backward-Navigation eingebaut, da unten in onClick nicht funktionstüchtig!
-        Intent i = new Intent (GameOverAusgabeseite.this, Hauptklasse.class);
+        //Hier: Provisorische 'Restart-Anwendung' in Backward-Navigation eingebaut, da unten in onClick nicht funktionstüchtig!
+        Intent i = new Intent (GameOverAusgabeseite.this, Startseite.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(i);
         finish();
@@ -49,7 +52,6 @@ public class GameOverAusgabeseite extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View v)
     {
-
         //textView_scoreAusgabe.setText("");
         Intent getScoreUebergabe = getIntent();
         String scoreIntent = getIntent().getStringExtra("ScoreUebergabeIntent");
@@ -66,8 +68,8 @@ public class GameOverAusgabeseite extends AppCompatActivity implements View.OnCl
 
         }
 */
-
     }
+
 
 
 

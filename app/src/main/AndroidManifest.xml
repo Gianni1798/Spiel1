@@ -17,15 +17,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".Hauptklasse" />
+        <activity android:name=".GameOverAusgabeseite" />
         <activity
-            android:name=".Einstellungen"
-            android:label="@string/title_activity_einstellungen"
-            android:parentActivityName=".Startseite">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.giannirandone.spiel1.Startseite" />
-        </activity>
-        <activity android:name=".GameOverAusgabeseite"></activity>
+            android:name=".Settings"
+            android:label="@string/title_activity_settings"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>
