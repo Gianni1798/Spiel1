@@ -598,7 +598,6 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
             Intent ScoreUebergabeIntent = new Intent(Hauptklasse.this, GameOverAusgabeseite.class);
             ScoreUebergabeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             ScoreUebergabeIntent.putExtra("score", scoreUebergabe);
-
             startActivity(ScoreUebergabeIntent);
             finish();
 

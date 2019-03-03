@@ -2,6 +2,7 @@ package com.example.giannirandone.spiel1;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,8 +16,12 @@ public class GameOverAusgabeseite extends AppCompatActivity implements View.OnCl
 
 
    TextView textView_scoreAusgabe;
-   TextView textViewHighscoreAusgabe;
+   TextView textView_NewHighScore;
    Button btn_restartGame;
+   int erreichtePunkte = 0;
+   SharedPreferences preferences;
+   SharedPreferences.Editor preferencesEditor;
+   final String locationHighScore = "SpeicherortHighScore";
 
 
 
@@ -27,14 +32,39 @@ public class GameOverAusgabeseite extends AppCompatActivity implements View.OnCl
 
 
         textView_scoreAusgabe = (TextView) findViewById(R.id.textView_scoreAusgabe);
-        textViewHighscoreAusgabe = (TextView) findViewById(R.id.textViewHighscoreAusgabe);
         btn_restartGame = (Button) findViewById(R.id.btn_restartGame);
 
         Intent scoreAnnahme = getIntent();
         String scoreUebergabe = scoreAnnahme.getExtras().getString("score");
         textView_scoreAusgabe.setText(scoreUebergabe);
 
+        //AB HIER MUSS WEITER GEARBEITET WERDEN!!!
+
+/*
+        preferences = getSharedPreferences("score",0);
+        preferencesEditor = preferences.edit();
+        Bundle extras = getIntent().getExtras();
+
+        if (extras == null)
+        erreichtePunkte = 0;
+        else
+        erreichtePunkte = Integer.valueOf(scoreAnnahme.getExtras().getString("score"));
+
+*/
+        //showIfHighscore();
+
     }
+
+
+    private void showIfHighscore()
+    {
+        if(erreichtePunkte > preferences.getInt(locationHighScore, 0));
+        {
+            textView_NewHighScore.setText("+++ NEW HIGHSCORE +++");
+            preferencesEditor.putInt(locationHighScore, erreichtePunkte);
+        }
+    }
+
 
     @Override
     public void onBackPressed()
@@ -52,10 +82,6 @@ public class GameOverAusgabeseite extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View v)
     {
-        //textView_scoreAusgabe.setText("");
-        Intent getScoreUebergabe = getIntent();
-        String scoreIntent = getIntent().getStringExtra("ScoreUebergabeIntent");
-        textView_scoreAusgabe.setText(scoreIntent);
 
 /*
         if ((v.equals(btn_restartGame)))
@@ -68,6 +94,9 @@ public class GameOverAusgabeseite extends AppCompatActivity implements View.OnCl
 
         }
 */
+
+
+
     }
 
 
