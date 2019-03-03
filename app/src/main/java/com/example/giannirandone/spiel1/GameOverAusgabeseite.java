@@ -21,7 +21,7 @@ public class GameOverAusgabeseite extends AppCompatActivity implements View.OnCl
    int erreichtePunkte = 0;
    SharedPreferences preferences;
    SharedPreferences.Editor preferencesEditor;
-   final String locationHighScore = "SpeicherortHighScore";
+   String locationHighScore = "SpeicherortHighscore";
 
 
 
@@ -33,6 +33,7 @@ public class GameOverAusgabeseite extends AppCompatActivity implements View.OnCl
 
         textView_scoreAusgabe = (TextView) findViewById(R.id.textView_scoreAusgabe);
         btn_restartGame = (Button) findViewById(R.id.btn_restartGame);
+        btn_restartGame.setOnClickListener((View.OnClickListener)this);
 
         Intent scoreAnnahme = getIntent();
         String scoreUebergabe = scoreAnnahme.getExtras().getString("score");
@@ -40,9 +41,20 @@ public class GameOverAusgabeseite extends AppCompatActivity implements View.OnCl
 
         //AB HIER MUSS WEITER GEARBEITET WERDEN!!!
 
-/*
+
+
         preferences = getSharedPreferences("score",0);
+        locationHighScore = preferences.getString("score","Du hast noch keinen Score erzielt!");
+
         preferencesEditor = preferences.edit();
+        CharSequence textData = textView_scoreAusgabe.getText();
+
+        if (textData!=null)
+        {
+            preferencesEditor.putString("score",textData.toString());
+            preferencesEditor.commit();
+        }
+
         Bundle extras = getIntent().getExtras();
 
         if (extras == null)
@@ -50,11 +62,10 @@ public class GameOverAusgabeseite extends AppCompatActivity implements View.OnCl
         else
         erreichtePunkte = Integer.valueOf(scoreAnnahme.getExtras().getString("score"));
 
-*/
+
         //showIfHighscore();
 
     }
-
 
     private void showIfHighscore()
     {
@@ -83,7 +94,7 @@ public class GameOverAusgabeseite extends AppCompatActivity implements View.OnCl
     public void onClick(View v)
     {
 
-/*
+
         if ((v.equals(btn_restartGame)))
         {
 
@@ -93,7 +104,7 @@ public class GameOverAusgabeseite extends AppCompatActivity implements View.OnCl
             finish();
 
         }
-*/
+
 
 
 
