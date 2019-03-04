@@ -40,7 +40,6 @@ public class Startseite extends AppCompatActivity implements View.OnClickListene
     public void onClick (View e)
     {
 
-
         if (e.equals(btn_SpielStarten))
         {
 
@@ -57,7 +56,6 @@ public class Startseite extends AppCompatActivity implements View.OnClickListene
             startActivity(new Intent(Startseite.this, Settings.class));
 
         }
-
 
     }
 

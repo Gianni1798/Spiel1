@@ -14,7 +14,6 @@ import org.w3c.dom.Text;
 public class GameOverAusgabeseite extends AppCompatActivity implements View.OnClickListener
 {
 
-
    TextView textView_scoreAusgabe;
    TextView textView_NewHighScore;
    Button btn_restartGame;

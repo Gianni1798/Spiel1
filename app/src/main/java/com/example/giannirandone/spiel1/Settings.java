@@ -17,7 +17,6 @@ public class Settings extends AppCompatActivity {
 
         settingsTextViewHighscoreAusgabe = (TextView) findViewById(R.id.settingsTextViewHighscoreAusgabe);
 
-
     }
 
 

@@ -133,7 +133,6 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
     }
 
 
-
     @Override
 
     public void onClick (View v)
