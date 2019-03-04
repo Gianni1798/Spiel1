@@ -1,6 +1,7 @@
 package com.example.giannirandone.spiel1;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.os.CountDownTimer;
@@ -47,7 +48,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
     TextView textView_Feedback;
     Button pause_btn;
     boolean pause_check = false;
-    private static long startTimeInMillis = 61000; //private static final long
+    private static long startTimeInMillis = 61000; //vorher: private static final long
     private long timeLeftInMillis = startTimeInMillis;
     boolean pause_onStart = true;
 
@@ -110,8 +111,8 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
         //Überprüfe ob Zufallszahlen evtl. gleich sind
         SameNumbers();
-
         //Ende der Überprüfung
+
         score = 0;
         scoreString = Integer.toString(score);
         textView_score.setText(scoreString);
@@ -120,12 +121,18 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
         counter = 60;
 
-        pause_onStart = true;
-
         timer.cancel();
         resetTimer();
-        timer.start();
         textView_time.setText(" " + String.valueOf(counter) + " Sec.");
+
+        /*
+        Problembehebung:
+        Wenn Activity im Pause-Modus gestartet wird,
+        dass der Timer nun nicht mehr bereits im Hintergrund startet
+        */
+
+        if (pause_onStart==true)
+        timer.start();
 
         startTimeInMillis = 61000;
         timeLeftInMillis = startTimeInMillis;
@@ -823,6 +830,14 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
     //Ende Pause-Button
 
+    @Override
+    protected void onStop()
+    {
+        super.onStop();
+
+        //---
+
+    }
 
 
 }
