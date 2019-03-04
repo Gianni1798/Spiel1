@@ -14,14 +14,14 @@ import org.w3c.dom.Text;
 public class GameOverAusgabeseite extends AppCompatActivity implements View.OnClickListener
 {
 
-   TextView textView_scoreAusgabe;
-   TextView textView_NewHighScore;
-   Button btn_restartGame;
-   Button btn_backHome;
-   int erreichtePunkte = 0;
-   SharedPreferences preferences;
-   SharedPreferences.Editor preferencesEditor;
-   String locationHighScore = "SpeicherortHighscore";
+    TextView textView_scoreAusgabe;
+    TextView textView_NewHighScore;
+    Button btn_restartGame;
+    Button btn_backHome;
+    int erreichtePunkte = 0;
+    SharedPreferences preferences;
+    SharedPreferences.Editor preferencesEditor;
+    String locationHighScore = "SpeicherortHighscore";
 
 
 
@@ -60,9 +60,9 @@ public class GameOverAusgabeseite extends AppCompatActivity implements View.OnCl
         Bundle extras = getIntent().getExtras();
 
         if (extras == null)
-        erreichtePunkte = 0;
+            erreichtePunkte = 0;
         else
-        erreichtePunkte = Integer.valueOf(scoreAnnahme.getExtras().getString("score"));
+            erreichtePunkte = Integer.valueOf(scoreAnnahme.getExtras().getString("score"));
 
 
         //showIfHighscore();

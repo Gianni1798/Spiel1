@@ -132,7 +132,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         */
 
         if (pause_onStart==true)
-        timer.start();
+            timer.start();
 
         startTimeInMillis = 61000;
         timeLeftInMillis = startTimeInMillis;
@@ -143,235 +143,235 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
     @Override
 
     public void onClick (View v)
-        {
+    {
 
 
 
-            switch (v.getId()) {
+        switch (v.getId()) {
 
 
 
-                case R.id.button1:
+            case R.id.button1:
 
 
-                    if (zufallszahl > zufallszahl2) {
-                        if (zufallszahl > zufallszahl3) {
-                            if (zufallszahl > zufallszahl4) {
+                if (zufallszahl > zufallszahl2) {
+                    if (zufallszahl > zufallszahl3) {
+                        if (zufallszahl > zufallszahl4) {
 
-                                //Score erhöhen:
-                                //textView_Feedback.setText("+");
-                                //textView_Feedback.setTextColor(Color.GREEN);
-                                score++;
-                                scoreString = Integer.toString(score);
-                                textView_score.setText(scoreString);
+                            //Score erhöhen:
+                            //textView_Feedback.setText("+");
+                            //textView_Feedback.setTextColor(Color.GREEN);
+                            score++;
+                            scoreString = Integer.toString(score);
+                            textView_score.setText(scoreString);
 
 
 
-                            }
                         }
                     }
-                    else
-                    {
-                        //textView_Feedback.setText("-");
-                        //textView_Feedback.setTextColor(Color.RED);
-                        score = score + 0;
-                        scoreString = Integer.toString(score);
-                        textView_score.setText(scoreString);
-                    }
+                }
+                else
+                {
+                    //textView_Feedback.setText("-");
+                    //textView_Feedback.setTextColor(Color.RED);
+                    score = score + 0;
+                    scoreString = Integer.toString(score);
+                    textView_score.setText(scoreString);
+                }
 
 
-                    zufallszahl = 0;
-                    zufallszahl2 = 0;
-                    zufallszahl3 = 0;
-                    zufallszahl4 = 0;
+                zufallszahl = 0;
+                zufallszahl2 = 0;
+                zufallszahl3 = 0;
+                zufallszahl4 = 0;
 
 
-                    zufallszahl = (int) (Math.random() * 500) + 1;
-                    zufallszahlString = Integer.toString(zufallszahl);
-                    button1.setText(zufallszahlString);
+                zufallszahl = (int) (Math.random() * 500) + 1;
+                zufallszahlString = Integer.toString(zufallszahl);
+                button1.setText(zufallszahlString);
 
-                    zufallszahl2 = (int) (Math.random() * 500) + 1;
-                    zufallszahlString2 = Integer.toString(zufallszahl2);
-                    button2.setText(zufallszahlString2);
+                zufallszahl2 = (int) (Math.random() * 500) + 1;
+                zufallszahlString2 = Integer.toString(zufallszahl2);
+                button2.setText(zufallszahlString2);
 
-                    zufallszahl3 = (int) (Math.random() * 500) + 1;
-                    zufallszahlString3 = Integer.toString(zufallszahl3);
-                    button3.setText(zufallszahlString3);
+                zufallszahl3 = (int) (Math.random() * 500) + 1;
+                zufallszahlString3 = Integer.toString(zufallszahl3);
+                button3.setText(zufallszahlString3);
 
-                    zufallszahl4 = (int) (Math.random() * 500) + 1;
-                    zufallszahlString4 = Integer.toString(zufallszahl4);
-                    button4.setText(zufallszahlString4);
+                zufallszahl4 = (int) (Math.random() * 500) + 1;
+                zufallszahlString4 = Integer.toString(zufallszahl4);
+                button4.setText(zufallszahlString4);
 
-                    SameNumbers();
-
-
-                    break;
-
-                case R.id.button2:
+                SameNumbers();
 
 
-                    if (zufallszahl2 > zufallszahl) {
-                        if (zufallszahl2 > zufallszahl3) {
-                            if (zufallszahl2 > zufallszahl4) {
+                break;
 
-                                //Score erhöhen:
-                                //textView_Feedback.setText("+");
-                                //textView_Feedback.setTextColor(Color.GREEN);
-                                score++;
-                                scoreString = Integer.toString(score);
-                                textView_score.setText(scoreString);
+            case R.id.button2:
 
 
-                            }
+                if (zufallszahl2 > zufallszahl) {
+                    if (zufallszahl2 > zufallszahl3) {
+                        if (zufallszahl2 > zufallszahl4) {
+
+                            //Score erhöhen:
+                            //textView_Feedback.setText("+");
+                            //textView_Feedback.setTextColor(Color.GREEN);
+                            score++;
+                            scoreString = Integer.toString(score);
+                            textView_score.setText(scoreString);
+
+
                         }
                     }
-                    else
-                    {
-                        //textView_Feedback.setText("-");
-                        //textView_Feedback.setTextColor(Color.RED);
-                        score = score + 0;
-                        scoreString = Integer.toString(score);
-                        textView_score.setText(scoreString);
-                    }
+                }
+                else
+                {
+                    //textView_Feedback.setText("-");
+                    //textView_Feedback.setTextColor(Color.RED);
+                    score = score + 0;
+                    scoreString = Integer.toString(score);
+                    textView_score.setText(scoreString);
+                }
 
-                    zufallszahl = 0;
-                    zufallszahl2 = 0;
-                    zufallszahl3 = 0;
-                    zufallszahl4 = 0;
-
-
-                    zufallszahl = (int) (Math.random() * 500) + 1;
-                    zufallszahlString = Integer.toString(zufallszahl);
-                    button1.setText(zufallszahlString);
-
-                    zufallszahl2 = (int) (Math.random() * 500) + 1;
-                    zufallszahlString2 = Integer.toString(zufallszahl2);
-                    button2.setText(zufallszahlString2);
-
-                    zufallszahl3 = (int) (Math.random() * 500) + 1;
-                    zufallszahlString3 = Integer.toString(zufallszahl3);
-                    button3.setText(zufallszahlString3);
-
-                    zufallszahl4 = (int) (Math.random() * 500) + 1;
-                    zufallszahlString4 = Integer.toString(zufallszahl4);
-                    button4.setText(zufallszahlString4);
-
-                    SameNumbers();
+                zufallszahl = 0;
+                zufallszahl2 = 0;
+                zufallszahl3 = 0;
+                zufallszahl4 = 0;
 
 
-                    break;
+                zufallszahl = (int) (Math.random() * 500) + 1;
+                zufallszahlString = Integer.toString(zufallszahl);
+                button1.setText(zufallszahlString);
 
-                case R.id.button3:
+                zufallszahl2 = (int) (Math.random() * 500) + 1;
+                zufallszahlString2 = Integer.toString(zufallszahl2);
+                button2.setText(zufallszahlString2);
 
-                    if (zufallszahl3 > zufallszahl) {
-                        if (zufallszahl3 > zufallszahl2) {
-                            if (zufallszahl3 > zufallszahl4) {
+                zufallszahl3 = (int) (Math.random() * 500) + 1;
+                zufallszahlString3 = Integer.toString(zufallszahl3);
+                button3.setText(zufallszahlString3);
 
-                                //Score erhöhen:
-                                //textView_Feedback.setText("+");
-                                //textView_Feedback.setTextColor(Color.GREEN);
-                                score++;
-                                scoreString = Integer.toString(score);
-                                textView_score.setText(scoreString);
+                zufallszahl4 = (int) (Math.random() * 500) + 1;
+                zufallszahlString4 = Integer.toString(zufallszahl4);
+                button4.setText(zufallszahlString4);
+
+                SameNumbers();
 
 
-                            }
+                break;
+
+            case R.id.button3:
+
+                if (zufallszahl3 > zufallszahl) {
+                    if (zufallszahl3 > zufallszahl2) {
+                        if (zufallszahl3 > zufallszahl4) {
+
+                            //Score erhöhen:
+                            //textView_Feedback.setText("+");
+                            //textView_Feedback.setTextColor(Color.GREEN);
+                            score++;
+                            scoreString = Integer.toString(score);
+                            textView_score.setText(scoreString);
+
+
                         }
                     }
-                    else
-                    {
-                        //textView_Feedback.setText("-");
-                        //textView_Feedback.setTextColor(Color.RED);
-                        score = score + 0;
-                        scoreString = Integer.toString(score);
-                        textView_score.setText(scoreString);
-                    }
+                }
+                else
+                {
+                    //textView_Feedback.setText("-");
+                    //textView_Feedback.setTextColor(Color.RED);
+                    score = score + 0;
+                    scoreString = Integer.toString(score);
+                    textView_score.setText(scoreString);
+                }
 
-                    zufallszahl = 0;
-                    zufallszahl2 = 0;
-                    zufallszahl3 = 0;
-                    zufallszahl4 = 0;
-
-
-                    zufallszahl = (int) (Math.random() * 500) + 1;
-                    zufallszahlString = Integer.toString(zufallszahl);
-                    button1.setText(zufallszahlString);
-
-                    zufallszahl2 = (int) (Math.random() * 500) + 1;
-                    zufallszahlString2 = Integer.toString(zufallszahl2);
-                    button2.setText(zufallszahlString2);
-
-                    zufallszahl3 = (int) (Math.random() * 500) + 1;
-                    zufallszahlString3 = Integer.toString(zufallszahl3);
-                    button3.setText(zufallszahlString3);
-
-                    zufallszahl4 = (int) (Math.random() * 500) + 1;
-                    zufallszahlString4 = Integer.toString(zufallszahl4);
-                    button4.setText(zufallszahlString4);
-
-                    SameNumbers();
+                zufallszahl = 0;
+                zufallszahl2 = 0;
+                zufallszahl3 = 0;
+                zufallszahl4 = 0;
 
 
-                    break;
+                zufallszahl = (int) (Math.random() * 500) + 1;
+                zufallszahlString = Integer.toString(zufallszahl);
+                button1.setText(zufallszahlString);
 
-                case R.id.button4:
+                zufallszahl2 = (int) (Math.random() * 500) + 1;
+                zufallszahlString2 = Integer.toString(zufallszahl2);
+                button2.setText(zufallszahlString2);
 
-                    if (zufallszahl4 > zufallszahl) {
-                        if (zufallszahl4 > zufallszahl2) {
-                            if (zufallszahl4 > zufallszahl3) {
+                zufallszahl3 = (int) (Math.random() * 500) + 1;
+                zufallszahlString3 = Integer.toString(zufallszahl3);
+                button3.setText(zufallszahlString3);
 
-                                //Score erhöhen:
-                                //textView_Feedback.setText("+");
-                                //textView_Feedback.setTextColor(Color.GREEN);
-                                score++;
-                                scoreString = Integer.toString(score);
-                                textView_score.setText(scoreString);
+                zufallszahl4 = (int) (Math.random() * 500) + 1;
+                zufallszahlString4 = Integer.toString(zufallszahl4);
+                button4.setText(zufallszahlString4);
+
+                SameNumbers();
 
 
-                            }
+                break;
+
+            case R.id.button4:
+
+                if (zufallszahl4 > zufallszahl) {
+                    if (zufallszahl4 > zufallszahl2) {
+                        if (zufallszahl4 > zufallszahl3) {
+
+                            //Score erhöhen:
+                            //textView_Feedback.setText("+");
+                            //textView_Feedback.setTextColor(Color.GREEN);
+                            score++;
+                            scoreString = Integer.toString(score);
+                            textView_score.setText(scoreString);
+
+
                         }
                     }
-                    else
-                    {
-                        //textView_Feedback.setText("-");
-                        //textView_Feedback.setTextColor(Color.RED);
-                        score = score + 0;
-                        scoreString = Integer.toString(score);
-                        textView_score.setText(scoreString);
-                    }
+                }
+                else
+                {
+                    //textView_Feedback.setText("-");
+                    //textView_Feedback.setTextColor(Color.RED);
+                    score = score + 0;
+                    scoreString = Integer.toString(score);
+                    textView_score.setText(scoreString);
+                }
 
-                    zufallszahl = 0;
-                    zufallszahl2 = 0;
-                    zufallszahl3 = 0;
-                    zufallszahl4 = 0;
-
-
-                    zufallszahl = (int) (Math.random() * 500) + 1;
-                    zufallszahlString = Integer.toString(zufallszahl);
-                    button1.setText(zufallszahlString);
-
-                    zufallszahl2 = (int) (Math.random() * 500) + 1;
-                    zufallszahlString2 = Integer.toString(zufallszahl2);
-                    button2.setText(zufallszahlString2);
-
-                    zufallszahl3 = (int) (Math.random() * 500) + 1;
-                    zufallszahlString3 = Integer.toString(zufallszahl3);
-                    button3.setText(zufallszahlString3);
-
-                    zufallszahl4 = (int) (Math.random() * 500) + 1;
-                    zufallszahlString4 = Integer.toString(zufallszahl4);
-                    button4.setText(zufallszahlString4);
+                zufallszahl = 0;
+                zufallszahl2 = 0;
+                zufallszahl3 = 0;
+                zufallszahl4 = 0;
 
 
-                    SameNumbers();
+                zufallszahl = (int) (Math.random() * 500) + 1;
+                zufallszahlString = Integer.toString(zufallszahl);
+                button1.setText(zufallszahlString);
 
-                    break;
+                zufallszahl2 = (int) (Math.random() * 500) + 1;
+                zufallszahlString2 = Integer.toString(zufallszahl2);
+                button2.setText(zufallszahlString2);
+
+                zufallszahl3 = (int) (Math.random() * 500) + 1;
+                zufallszahlString3 = Integer.toString(zufallszahl3);
+                button3.setText(zufallszahlString3);
+
+                zufallszahl4 = (int) (Math.random() * 500) + 1;
+                zufallszahlString4 = Integer.toString(zufallszahl4);
+                button4.setText(zufallszahlString4);
 
 
-            }
+                SameNumbers();
+
+                break;
 
 
         }
+
+
+    }
 
 
     public void SameNumbers()
@@ -379,88 +379,88 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
         //Zufallszahl 1:
 
-      while (zufallszahl == zufallszahl2)
-      {
-          //generiere Zufallszahl neu
-          zufallszahl2 = (int) (Math.random() * 500) + 1;
+        while (zufallszahl == zufallszahl2)
+        {
+            //generiere Zufallszahl neu
+            zufallszahl2 = (int) (Math.random() * 500) + 1;
 
-          if(!(zufallszahl == zufallszahl2))
-          {
-              zufallszahlString2 = Integer.toString(zufallszahl2);
-              button2.setText(zufallszahlString2);
-          }
+            if(!(zufallszahl == zufallszahl2))
+            {
+                zufallszahlString2 = Integer.toString(zufallszahl2);
+                button2.setText(zufallszahlString2);
+            }
 
-      }
+        }
 
-      while (zufallszahl == zufallszahl3)
-      {
-          //generiere Zufallszahl neu
-          zufallszahl3 = (int) (Math.random() * 500) + 1;
+        while (zufallszahl == zufallszahl3)
+        {
+            //generiere Zufallszahl neu
+            zufallszahl3 = (int) (Math.random() * 500) + 1;
 
-          if (!(zufallszahl == zufallszahl3))
-          {
-              zufallszahlString3 = Integer.toString(zufallszahl3);
-              button3.setText(zufallszahlString3);
-          }
+            if (!(zufallszahl == zufallszahl3))
+            {
+                zufallszahlString3 = Integer.toString(zufallszahl3);
+                button3.setText(zufallszahlString3);
+            }
 
-      }
+        }
 
-      while (zufallszahl == zufallszahl4)
-      {
-          //generiere Zufallszahl neu
-          zufallszahl4 = (int) (Math.random() * 500) + 1;
+        while (zufallszahl == zufallszahl4)
+        {
+            //generiere Zufallszahl neu
+            zufallszahl4 = (int) (Math.random() * 500) + 1;
 
-          if(!(zufallszahl == zufallszahl4))
-          {
-              zufallszahlString4 = Integer.toString(zufallszahl4);
-              button4.setText(zufallszahlString4);
-          }
+            if(!(zufallszahl == zufallszahl4))
+            {
+                zufallszahlString4 = Integer.toString(zufallszahl4);
+                button4.setText(zufallszahlString4);
+            }
 
-      }
-
-
-      //Zufallszahl 2:
+        }
 
 
-      while (zufallszahl2 == zufallszahl)
-      {
-          //generiere Zufallszahl neu
-          zufallszahl = (int) (Math.random() * 500) + 1;
-
-          if (!(zufallszahl2 == zufallszahl))
-          {
-              zufallszahlString = Integer.toString(zufallszahl);
-              button1.setText(zufallszahlString);
-          }
-
-      }
-
-      while (zufallszahl2 == zufallszahl3)
-      {
-          //generiere Zufallszahl neu
-          zufallszahl3 = (int) (Math.random() * 500) + 1;
-
-          if(!(zufallszahl2 == zufallszahl3))
-          {
-              zufallszahlString3 = Integer.toString(zufallszahl3);
-              button3.setText(zufallszahlString3);
-          }
-      }
-
-      while (zufallszahl2 == zufallszahl4)
-      {
-          //generiere Zufallszahl neu
-          zufallszahl4 = (int) (Math.random() * 500) + 1;
-
-          if(!(zufallszahl2 == zufallszahl4))
-          {
-              zufallszahlString4 = Integer.toString(zufallszahl4);
-              button4.setText(zufallszahlString4);
-          }
-      }
+        //Zufallszahl 2:
 
 
-      //Zufallszahl 3:
+        while (zufallszahl2 == zufallszahl)
+        {
+            //generiere Zufallszahl neu
+            zufallszahl = (int) (Math.random() * 500) + 1;
+
+            if (!(zufallszahl2 == zufallszahl))
+            {
+                zufallszahlString = Integer.toString(zufallszahl);
+                button1.setText(zufallszahlString);
+            }
+
+        }
+
+        while (zufallszahl2 == zufallszahl3)
+        {
+            //generiere Zufallszahl neu
+            zufallszahl3 = (int) (Math.random() * 500) + 1;
+
+            if(!(zufallszahl2 == zufallszahl3))
+            {
+                zufallszahlString3 = Integer.toString(zufallszahl3);
+                button3.setText(zufallszahlString3);
+            }
+        }
+
+        while (zufallszahl2 == zufallszahl4)
+        {
+            //generiere Zufallszahl neu
+            zufallszahl4 = (int) (Math.random() * 500) + 1;
+
+            if(!(zufallszahl2 == zufallszahl4))
+            {
+                zufallszahlString4 = Integer.toString(zufallszahl4);
+                button4.setText(zufallszahlString4);
+            }
+        }
+
+
+        //Zufallszahl 3:
 
         while (zufallszahl3 == zufallszahl)
         {
@@ -550,12 +550,12 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
 
             if(!(counter==0))
-                {
+            {
                 textView_time.setText(" " + (String.valueOf(counter)) + " Sec.");
-                }else
-                {
-                    textView_time.setText("");
-                }
+            }else
+            {
+                textView_time.setText("");
+            }
 
             counter--;
 
@@ -801,14 +801,14 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
         }
         else
-            {
+        {
 
 
             pause_check = false;
             pause_btn.setText("II");
 
             if(!(pause_onStart==true))
-            timer.start();
+                timer.start();
 
             button1.setCursorVisible(true);
             button1.setEnabled(true);
@@ -823,7 +823,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
             button4.setEnabled(true);
 
 
-           }
+        }
 
 
     }
