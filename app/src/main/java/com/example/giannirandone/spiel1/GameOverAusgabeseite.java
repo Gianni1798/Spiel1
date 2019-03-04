@@ -18,6 +18,7 @@ public class GameOverAusgabeseite extends AppCompatActivity implements View.OnCl
    TextView textView_scoreAusgabe;
    TextView textView_NewHighScore;
    Button btn_restartGame;
+   Button btn_backHome;
    int erreichtePunkte = 0;
    SharedPreferences preferences;
    SharedPreferences.Editor preferencesEditor;
@@ -34,6 +35,8 @@ public class GameOverAusgabeseite extends AppCompatActivity implements View.OnCl
         textView_scoreAusgabe = (TextView) findViewById(R.id.textView_scoreAusgabe);
         btn_restartGame = (Button) findViewById(R.id.btn_restartGame);
         btn_restartGame.setOnClickListener((View.OnClickListener)this);
+        btn_backHome = (Button) findViewById(R.id.btn_backHome);
+        btn_backHome.setOnClickListener((View.OnClickListener)this);
 
         Intent scoreAnnahme = getIntent();
         String scoreUebergabe = scoreAnnahme.getExtras().getString("score");
@@ -80,13 +83,7 @@ public class GameOverAusgabeseite extends AppCompatActivity implements View.OnCl
     @Override
     public void onBackPressed()
     {
-        //(Deaktiviert den Backward-Navigation-Button)
-
-        //Hier: Provisorische 'Restart-Anwendung' in Backward-Navigation eingebaut, da unten in onClick nicht funktionstüchtig!
-        Intent i = new Intent (GameOverAusgabeseite.this, Startseite.class);
-        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(i);
-        finish();
+        //Deaktiviert den Backward-Navigation-Button
 
     }
 
@@ -94,19 +91,21 @@ public class GameOverAusgabeseite extends AppCompatActivity implements View.OnCl
     public void onClick(View v)
     {
 
-
         if ((v.equals(btn_restartGame)))
         {
-
             Intent i = new Intent (GameOverAusgabeseite.this, Hauptklasse.class);
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(i);
             finish();
-
         }
 
-
-
+        if (v.equals(btn_backHome))
+        {
+            Intent i = new Intent (GameOverAusgabeseite.this, Startseite.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(i);
+            finish();
+        }
 
     }
 
