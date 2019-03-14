@@ -835,7 +835,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
     {
         super.onStop();
 
-        //---
+
 
     }
 
