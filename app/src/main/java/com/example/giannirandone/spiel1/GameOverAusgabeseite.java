@@ -41,8 +41,7 @@ public class GameOverAusgabeseite extends AppCompatActivity implements View.OnCl
         String scoreUebergabe = scoreAnnahme.getExtras().getString("score");
         textView_scoreAusgabe.setText(scoreUebergabe);
 
-        //AB HIER MUSS WEITER GEARBEITET WERDEN!!!
-
+        //TODO
 
 
         preferences = getSharedPreferences("score",0);
