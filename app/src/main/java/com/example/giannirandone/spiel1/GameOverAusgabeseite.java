@@ -77,7 +77,7 @@ public class GameOverAusgabeseite extends AppCompatActivity
         Im Folgenden:
         Prüft auf Highscore. Alter Wert wird mit neuem niederlegten Wert verglichen.
         Ist der neue ein Highscore, bleibt er im Speicher liegen, wenn nicht,
-        wird der vorherigst abgespeicherte Wert wieder im Speicher abgespeichert
+        wird der vorherigst abgespeicherte Wert wieder im Speicher niedergelegt.
         */
         if (scoreAusgabeNEW>scoreAusgabeOLD)
         {
