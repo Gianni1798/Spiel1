@@ -18,11 +18,6 @@ public class GameOverAusgabeseite extends AppCompatActivity
     TextView textView_NewHighScore;
     Button btn_restartGame;
     Button btn_backHome;
-    int erreichtePunkte = 0;
-
-    SharedPreferences preferences;
-    SharedPreferences.Editor preferencesEditor;
-    String locationHighScore = "SpeicherortHighscore";
 
 
 
@@ -64,7 +59,6 @@ public class GameOverAusgabeseite extends AppCompatActivity
         textView_scoreAusgabe.setText(scoreUebergabe);
 
         int scoreUebergabeInt = Integer.valueOf(scoreUebergabe);
-
 
         SharedPreferences loadScoreOLD = this.getSharedPreferences("score", 0);
         int scoreAusgabeOLD = loadScoreOLD.getInt("score", 0);
