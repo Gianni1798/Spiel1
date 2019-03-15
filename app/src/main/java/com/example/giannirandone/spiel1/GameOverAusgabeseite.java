@@ -19,8 +19,6 @@ public class GameOverAusgabeseite extends AppCompatActivity
     Button btn_restartGame;
     Button btn_backHome;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,7 +76,7 @@ public class GameOverAusgabeseite extends AppCompatActivity
         /*
         Im Folgenden:
         Prüft auf Highscore. Alter Wert wird mit neuem niederlegten Wert verglichen.
-        Ist der neue ein Highscore, bleibt er im Speicher gespeichert, wenn nicht,
+        Ist der neue ein Highscore, bleibt er im Speicher liegen, wenn nicht,
         wird der vorherigst abgespeicherte Wert wieder im Speicher abgespeichert
         */
         if (scoreAusgabeNEW>scoreAusgabeOLD)
@@ -91,7 +89,6 @@ public class GameOverAusgabeseite extends AppCompatActivity
             editor.commit();
         }
     }
-
 
     @Override
     public void onBackPressed()
