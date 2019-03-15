@@ -1,6 +1,7 @@
 package com.example.giannirandone.spiel1;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,8 +23,11 @@ public class Settings extends AppCompatActivity {
     public void onClick(View v)
     {
 
-
+        SharedPreferences highscore = getSharedPreferences("score", 0);
+        int highscoreAusgabe = highscore.getInt("score", 0);
+        settingsTextViewHighscoreAusgabe.setText(highscore.getInt("score", 0));
 
     }
 
 }
+

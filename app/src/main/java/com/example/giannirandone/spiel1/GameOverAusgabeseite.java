@@ -82,6 +82,7 @@ public class GameOverAusgabeseite extends AppCompatActivity
         if (scoreAusgabeNEW>scoreAusgabeOLD)
         {
             textView_NewHighScore.setText("NEW HIGHSCORE!");
+
         }
         else
         {
@@ -89,6 +90,8 @@ public class GameOverAusgabeseite extends AppCompatActivity
             editor.commit();
         }
     }
+
+
 
     @Override
     public void onBackPressed()
