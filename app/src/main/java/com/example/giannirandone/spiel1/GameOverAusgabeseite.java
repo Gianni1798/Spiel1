@@ -54,26 +54,33 @@ public class GameOverAusgabeseite extends AppCompatActivity
             }
         });
 
+        //Übergebener, erzielter Score wird angenommen und ausgegeben
         Intent scoreAnnahme = getIntent();
         String scoreUebergabe = scoreAnnahme.getExtras().getString("score");
         textView_scoreAusgabe.setText(scoreUebergabe);
 
         int scoreUebergabeInt = Integer.valueOf(scoreUebergabe);
 
+        //Ruft im Speicher abgelegten Highscore ab
         SharedPreferences loadScoreOLD = this.getSharedPreferences("score", 0);
         int scoreAusgabeOLD = loadScoreOLD.getInt("score", 0);
 
-        //Save Score (NOT Highscore!!!)
+        //Speichert gerade erzielten Score im Speicher ab
         SharedPreferences score = getSharedPreferences("score", 0);
         SharedPreferences.Editor editor = score.edit();
         editor.putInt("score", scoreUebergabeInt);
         editor.commit();
 
-        //Load score
+        //Abgespeicherter Score wird abgerufen
         SharedPreferences loadScoreNEW = this.getSharedPreferences("score", 0);
         int scoreAusgabeNEW = loadScoreNEW.getInt("score", 0);
 
-        //Prüfe auf Highscore für Ausgabe und wenn kein neuer Highscore erreicht wurde, soll vorheriger Wert in SharedPreferences abgespeichert werden.
+        /*
+        Im Folgenden:
+        Prüft auf Highscore. Alter Wert wird mit neuem niederlegten Wert verglichen.
+        Ist der neue ein Highscore, bleibt er im Speicher gespeichert, wenn nicht,
+        wird der vorherigst abgespeicherte Wert wieder im Speicher abgespeichert
+        */
         if (scoreAusgabeNEW>scoreAusgabeOLD)
         {
             textView_NewHighScore.setText("NEW HIGHSCORE!");
