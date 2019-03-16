@@ -16,6 +16,11 @@ public class GameOverAusgabeseite extends AppCompatActivity
 
     TextView textView_scoreAusgabe;
     TextView textView_NewHighScore;
+    TextView textView_actualHighscore;
+    TextView textView_score;
+    TextView textView_labelHighscore;
+    TextView textView_missingPointsToNewHS;
+    TextView textView_missingPointsToNewHSNumber;
     Button btn_restartGame;
     Button btn_backHome;
 
@@ -27,6 +32,11 @@ public class GameOverAusgabeseite extends AppCompatActivity
 
         textView_scoreAusgabe = (TextView) findViewById(R.id.textView_scoreAusgabe);
         textView_NewHighScore = (TextView) findViewById(R.id.textView_NewHighScore);
+        textView_actualHighscore = (TextView) findViewById(R.id.textView_actualHighscore);
+        textView_score = (TextView) findViewById(R.id.textView_score);
+        textView_labelHighscore = (TextView) findViewById(R.id.textView_labelHighscore);
+        textView_missingPointsToNewHS = (TextView) findViewById(R.id.textView_missingPointsToNewHS);
+        textView_missingPointsToNewHSNumber = (TextView) findViewById(R.id.textView_missingPointsToNewHSNumber);
         btn_restartGame = (Button) findViewById(R.id.btn_restartGame);
         btn_backHome = (Button) findViewById(R.id.btn_backHome);
 
@@ -79,16 +89,33 @@ public class GameOverAusgabeseite extends AppCompatActivity
         Ist der neue ein Highscore, bleibt er im Speicher liegen, wenn nicht,
         wird der vorherigst abgespeicherte Wert wieder im Speicher niedergelegt.
         */
+        textView_actualHighscore.setTextColor(Color.BLACK);
+        textView_scoreAusgabe.setTextColor(Color.BLACK);
+        textView_score.setTextColor(Color.BLACK);
+        textView_actualHighscore.setTextColor(Color.BLACK);
+        textView_labelHighscore.setTextColor(Color.BLACK);
+
         if (scoreAusgabeNEW>scoreAusgabeOLD)
         {
+            textView_score.setTextColor(Color.GRAY);
+            textView_actualHighscore.setTextColor(Color.GRAY);
+            textView_labelHighscore.setTextColor(Color.GRAY);
             textView_NewHighScore.setText("NEW HIGHSCORE!");
-
+            textView_NewHighScore.setTextColor(Color.RED);
+            textView_scoreAusgabe.setTextColor(Color.RED);
         }
         else
         {
             editor.putInt("score", scoreAusgabeOLD);
             editor.commit();
+            int HS = score.getInt("score", 0);
+
+            textView_missingPointsToNewHS.setText("Missing Points to new Highscore:");
+            textView_missingPointsToNewHSNumber.setText(Integer.toString(HS + 1 - Integer.valueOf(scoreUebergabe)));
         }
+
+        textView_actualHighscore.setText(Integer.toString(score.getInt("score", 0)));
+
     }
 
 
