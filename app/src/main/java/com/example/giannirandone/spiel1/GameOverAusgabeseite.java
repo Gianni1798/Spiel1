@@ -40,26 +40,18 @@ public class GameOverAusgabeseite extends AppCompatActivity
         btn_restartGame = (Button) findViewById(R.id.btn_restartGame);
         btn_backHome = (Button) findViewById(R.id.btn_backHome);
 
-        btn_restartGame.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v)
-            {
-                Intent i = new Intent (GameOverAusgabeseite.this, Hauptklasse.class);
-                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(i);
-                finish();
-            }
+        btn_restartGame.setOnClickListener(v -> {
+            Intent i = new Intent (GameOverAusgabeseite.this, Hauptklasse.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(i);
+            finish();
         });
 
-        btn_backHome.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v)
-            {
-                Intent i = new Intent (GameOverAusgabeseite.this, Startseite.class);
-                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(i);
-                finish();
-            }
+        btn_backHome.setOnClickListener(v -> {
+            Intent i = new Intent (GameOverAusgabeseite.this, Startseite.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(i);
+            finish();
         });
 
         //Übergebener, erzielter Score wird angenommen und ausgegeben
