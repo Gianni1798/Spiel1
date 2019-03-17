@@ -1,25 +1,14 @@
 package com.example.giannirandone.spiel1;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.net.wifi.p2p.WifiP2pManager;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.TextView;
-import java.lang.Object;
-
-
-import java.time.chrono.Chronology;
-import java.util.Random;
-
-import static android.graphics.Color.*;
 
 public class Hauptklasse extends AppCompatActivity implements View.OnClickListener
 {
@@ -53,6 +42,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
     private long timeLeftInMillis = startTimeInMillis;
     boolean pause_onStart = true;
     int countLife = 3;
+    int round = 0;
 
 
     @Override
@@ -92,13 +82,9 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
     {
         super.onStart();
 
-        //Erzeuge Zufallszahlen:
-        generateNumbers();
+        //Erzeuge Zufallszahlen und gleichzeitige Überprüfung auf Gleicheit der Zahlen:
+        generateNumbers(round);
         //Ende Zufallszahlen
-
-        //Überprüfe ob Zufallszahlen evtl. gleich sind
-        SameNumbers();
-        //Ende der Überprüfung
 
         score = 0;
         scoreString = Integer.toString(score);
@@ -107,6 +93,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         //Ende Score
 
         countLife = 3;
+        round = 0;
         counter = 60;
 
         timer.cancel();
@@ -172,8 +159,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
                 zufallszahl3 = 0;
                 zufallszahl4 = 0;
 
-                generateNumbers();
-                SameNumbers();
+                generateNumbers(round);
                 showIfGameOverWithCountLife();
 
 
@@ -209,8 +195,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
                 zufallszahl3 = 0;
                 zufallszahl4 = 0;
 
-                generateNumbers();
-                SameNumbers();
+                generateNumbers(round);
                 showIfGameOverWithCountLife();
 
 
@@ -244,8 +229,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
                 zufallszahl3 = 0;
                 zufallszahl4 = 0;
 
-                generateNumbers();
-                SameNumbers();
+                generateNumbers(round);
                 showIfGameOverWithCountLife();
 
 
@@ -279,8 +263,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
                 zufallszahl3 = 0;
                 zufallszahl4 = 0;
 
-                generateNumbers();
-                SameNumbers();
+                generateNumbers(round);
                 showIfGameOverWithCountLife();
 
                 break;
@@ -291,25 +274,86 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
     }
 
-    public void generateNumbers()
+    public void generateNumbers(int roundNumber)
     {
 
-        zufallszahl = (int) (Math.random() * 500) + 1;
+        round++;
+
+
+        if(roundNumber<5)
+        {
+           changeLimit(9);
+           SameNumbers(9);
+
+        }
+        if (roundNumber>=5)
+        {
+            changeLimit(35);
+            SameNumbers(35);
+
+        }
+        if (roundNumber>=8)
+        {
+            changeLimit(99);
+            SameNumbers(99);
+
+        }
+        if (roundNumber>=15)
+        {
+            changeLimit(250);
+            SameNumbers(250);
+
+        }
+        if (roundNumber>=20)
+        {
+            changeLimit(400);
+            SameNumbers(400);
+
+        }
+        if (roundNumber>=25)
+        {
+            changeLimit(999);
+            SameNumbers(999);
+
+        }
+        if (roundNumber>=30)
+        {
+            changeLimit(9999);
+            SameNumbers(9999);
+
+        }
+        if (roundNumber>=40)
+        {
+            changeLimit(24999);
+            SameNumbers(24999);
+
+        }
+        if (roundNumber>=50)
+        {
+            changeLimit(100000);
+            SameNumbers(100000);
+        }
+
+
+    }
+
+    public void changeLimit(int limit)
+    {
+        zufallszahl = (int) (Math.random() * limit) + 1;
         zufallszahlString = Integer.toString(zufallszahl);
         button1.setText(zufallszahlString);
 
-        zufallszahl2 = (int) (Math.random() * 500) + 1;
+        zufallszahl2 = (int) (Math.random() * limit) + 1;
         zufallszahlString2 = Integer.toString(zufallszahl2);
         button2.setText(zufallszahlString2);
 
-        zufallszahl3 = (int) (Math.random() * 500) + 1;
+        zufallszahl3 = (int) (Math.random() * limit) + 1;
         zufallszahlString3 = Integer.toString(zufallszahl3);
         button3.setText(zufallszahlString3);
 
-        zufallszahl4 = (int) (Math.random() * 500) + 1;
+        zufallszahl4 = (int) (Math.random() * limit) + 1;
         zufallszahlString4 = Integer.toString(zufallszahl4);
         button4.setText(zufallszahlString4);
-
     }
 
     public void showIfGameOverWithCountLife()
@@ -320,7 +364,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         countLifeAusgabe.setText("Your lives: " + Integer.toString(countLife));
     }
 
-    public void SameNumbers()
+    public void SameNumbers(int limitOfRound)
     {
 
         //Zufallszahl 1:
@@ -328,7 +372,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         while (zufallszahl == zufallszahl2)
         {
             //generiere Zufallszahl neu
-            zufallszahl2 = (int) (Math.random() * 500) + 1;
+            zufallszahl2 = (int) (Math.random() * limitOfRound) + 1;
 
             if(!(zufallszahl == zufallszahl2))
             {
@@ -341,7 +385,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         while (zufallszahl == zufallszahl3)
         {
             //generiere Zufallszahl neu
-            zufallszahl3 = (int) (Math.random() * 500) + 1;
+            zufallszahl3 = (int) (Math.random() * limitOfRound) + 1;
 
             if (!(zufallszahl == zufallszahl3))
             {
@@ -354,7 +398,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         while (zufallszahl == zufallszahl4)
         {
             //generiere Zufallszahl neu
-            zufallszahl4 = (int) (Math.random() * 500) + 1;
+            zufallszahl4 = (int) (Math.random() * limitOfRound) + 1;
 
             if(!(zufallszahl == zufallszahl4))
             {
@@ -371,7 +415,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         while (zufallszahl2 == zufallszahl)
         {
             //generiere Zufallszahl neu
-            zufallszahl = (int) (Math.random() * 500) + 1;
+            zufallszahl = (int) (Math.random() * limitOfRound) + 1;
 
             if (!(zufallszahl2 == zufallszahl))
             {
@@ -384,7 +428,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         while (zufallszahl2 == zufallszahl3)
         {
             //generiere Zufallszahl neu
-            zufallszahl3 = (int) (Math.random() * 500) + 1;
+            zufallszahl3 = (int) (Math.random() * limitOfRound) + 1;
 
             if(!(zufallszahl2 == zufallszahl3))
             {
@@ -396,7 +440,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         while (zufallszahl2 == zufallszahl4)
         {
             //generiere Zufallszahl neu
-            zufallszahl4 = (int) (Math.random() * 500) + 1;
+            zufallszahl4 = (int) (Math.random() * limitOfRound) + 1;
 
             if(!(zufallszahl2 == zufallszahl4))
             {
@@ -411,7 +455,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         while (zufallszahl3 == zufallszahl)
         {
             //generiere Zufallszahl neu
-            zufallszahl = (int) (Math.random() * 500) + 1;
+            zufallszahl = (int) (Math.random() * limitOfRound) + 1;
 
             if (!(zufallszahl3 == zufallszahl))
             {
@@ -424,7 +468,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         while (zufallszahl3 == zufallszahl2)
         {
             //generiere Zufallszahl neu
-            zufallszahl2 = (int) (Math.random() * 500) + 1;
+            zufallszahl2 = (int) (Math.random() * limitOfRound) + 1;
 
             if(!(zufallszahl3 == zufallszahl2))
             {
@@ -436,7 +480,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         while (zufallszahl3 == zufallszahl4)
         {
             //generiere Zufallszahl neu
-            zufallszahl4 = (int) (Math.random() * 500) + 1;
+            zufallszahl4 = (int) (Math.random() * limitOfRound) + 1;
 
             if(!(zufallszahl3 == zufallszahl4))
             {
@@ -450,7 +494,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         while (zufallszahl4 == zufallszahl)
         {
             //generiere Zufallszahl neu
-            zufallszahl = (int) (Math.random() * 500) + 1;
+            zufallszahl = (int) (Math.random() * limitOfRound) + 1;
 
             if (!(zufallszahl4 == zufallszahl))
             {
@@ -463,7 +507,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         while (zufallszahl4 == zufallszahl2)
         {
             //generiere Zufallszahl neu
-            zufallszahl2 = (int) (Math.random() * 500) + 1;
+            zufallszahl2 = (int) (Math.random() * limitOfRound) + 1;
 
             if(!(zufallszahl4 == zufallszahl2))
             {
@@ -475,7 +519,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         while (zufallszahl4 == zufallszahl3)
         {
             //generiere Zufallszahl neu
-            zufallszahl3 = (int) (Math.random() * 500) + 1;
+            zufallszahl3 = (int) (Math.random() * limitOfRound) + 1;
 
             if(!(zufallszahl4 == zufallszahl3))
             {
