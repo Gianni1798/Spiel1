@@ -46,11 +46,13 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
     TextView textView1;
     TextView textView2;
     TextView textView_Feedback;
+    TextView countLifeAusgabe;
     Button pause_btn;
     boolean pause_check = false;
     private static long startTimeInMillis = 61000; //vorher: private static final long
     private long timeLeftInMillis = startTimeInMillis;
     boolean pause_onStart = true;
+    int countLife = 3;
 
 
     @Override
@@ -68,6 +70,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         textView1 = (TextView) findViewById(R.id.textView1);
         textView2 = (TextView) findViewById(R.id.textView2);
         textView_Feedback = (TextView) findViewById(R.id.textView_Feedback);
+        countLifeAusgabe = (TextView) findViewById(R.id.countLifeAusgabe);
         pause_btn = (Button) findViewById(R.id.pause_btn);
 
 
@@ -90,23 +93,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         super.onStart();
 
         //Erzeuge Zufallszahlen:
-
-        zufallszahl = (int)(Math.random() * 500) +1;
-        zufallszahlString = Integer.toString(zufallszahl);
-        button1.setText(zufallszahlString);
-
-        zufallszahl2 = (int)(Math.random() * 500) + 1;
-        zufallszahlString2 = Integer.toString(zufallszahl2);
-        button2.setText(zufallszahlString2);
-
-        zufallszahl3 = (int)(Math.random() * 500) + 1;
-        zufallszahlString3 = Integer.toString(zufallszahl3);
-        button3.setText(zufallszahlString3);
-
-        zufallszahl4 = (int)(Math.random() * 500) + 1;
-        zufallszahlString4 = Integer.toString(zufallszahl4);
-        button4.setText(zufallszahlString4);
-
+        generateNumbers();
         //Ende Zufallszahlen
 
         //Überprüfe ob Zufallszahlen evtl. gleich sind
@@ -119,6 +106,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
         //Ende Score
 
+        countLife = 3;
         counter = 60;
 
         timer.cancel();
@@ -137,6 +125,8 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         startTimeInMillis = 61000;
         timeLeftInMillis = startTimeInMillis;
 
+        showIfGameOverWithCountLife();
+
     }
 
 
@@ -154,29 +144,26 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
             case R.id.button1:
 
 
-                if (zufallszahl > zufallszahl2) {
-                    if (zufallszahl > zufallszahl3) {
-                        if (zufallszahl > zufallszahl4) {
+                if (zufallszahl > zufallszahl2 && zufallszahl > zufallszahl3 && zufallszahl > zufallszahl4) {
+
 
                             //Score erhöhen:
-                            //textView_Feedback.setText("+");
-                            //textView_Feedback.setTextColor(Color.GREEN);
+                            textView_Feedback.setText("+");
+                            textView_Feedback.setTextColor(Color.GREEN);
                             score++;
                             scoreString = Integer.toString(score);
                             textView_score.setText(scoreString);
 
-
-
-                        }
-                    }
                 }
                 else
                 {
-                    //textView_Feedback.setText("-");
-                    //textView_Feedback.setTextColor(Color.RED);
+                    textView_Feedback.setText("-");
+                    textView_Feedback.setTextColor(Color.RED);
                     score = score + 0;
                     scoreString = Integer.toString(score);
                     textView_score.setText(scoreString);
+                    countLife--;
+                    Log.i(Hauptklasse.class.getSimpleName(), "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX1");
                 }
 
 
@@ -185,24 +172,9 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
                 zufallszahl3 = 0;
                 zufallszahl4 = 0;
 
-
-                zufallszahl = (int) (Math.random() * 500) + 1;
-                zufallszahlString = Integer.toString(zufallszahl);
-                button1.setText(zufallszahlString);
-
-                zufallszahl2 = (int) (Math.random() * 500) + 1;
-                zufallszahlString2 = Integer.toString(zufallszahl2);
-                button2.setText(zufallszahlString2);
-
-                zufallszahl3 = (int) (Math.random() * 500) + 1;
-                zufallszahlString3 = Integer.toString(zufallszahl3);
-                button3.setText(zufallszahlString3);
-
-                zufallszahl4 = (int) (Math.random() * 500) + 1;
-                zufallszahlString4 = Integer.toString(zufallszahl4);
-                button4.setText(zufallszahlString4);
-
+                generateNumbers();
                 SameNumbers();
+                showIfGameOverWithCountLife();
 
 
                 break;
@@ -210,28 +182,26 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
             case R.id.button2:
 
 
-                if (zufallszahl2 > zufallszahl) {
-                    if (zufallszahl2 > zufallszahl3) {
-                        if (zufallszahl2 > zufallszahl4) {
+                if (zufallszahl2 > zufallszahl && zufallszahl2 > zufallszahl3 && zufallszahl2 > zufallszahl4) {
 
                             //Score erhöhen:
-                            //textView_Feedback.setText("+");
-                            //textView_Feedback.setTextColor(Color.GREEN);
+                            textView_Feedback.setText("+");
+                            textView_Feedback.setTextColor(Color.GREEN);
                             score++;
                             scoreString = Integer.toString(score);
                             textView_score.setText(scoreString);
 
-
-                        }
-                    }
                 }
                 else
                 {
-                    //textView_Feedback.setText("-");
-                    //textView_Feedback.setTextColor(Color.RED);
+                    textView_Feedback.setText("-");
+                    textView_Feedback.setTextColor(Color.RED);
                     score = score + 0;
                     scoreString = Integer.toString(score);
                     textView_score.setText(scoreString);
+                    countLife--;
+                    Log.i(Hauptklasse.class.getSimpleName(), "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX2");
+
                 }
 
                 zufallszahl = 0;
@@ -239,52 +209,34 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
                 zufallszahl3 = 0;
                 zufallszahl4 = 0;
 
-
-                zufallszahl = (int) (Math.random() * 500) + 1;
-                zufallszahlString = Integer.toString(zufallszahl);
-                button1.setText(zufallszahlString);
-
-                zufallszahl2 = (int) (Math.random() * 500) + 1;
-                zufallszahlString2 = Integer.toString(zufallszahl2);
-                button2.setText(zufallszahlString2);
-
-                zufallszahl3 = (int) (Math.random() * 500) + 1;
-                zufallszahlString3 = Integer.toString(zufallszahl3);
-                button3.setText(zufallszahlString3);
-
-                zufallszahl4 = (int) (Math.random() * 500) + 1;
-                zufallszahlString4 = Integer.toString(zufallszahl4);
-                button4.setText(zufallszahlString4);
-
+                generateNumbers();
                 SameNumbers();
+                showIfGameOverWithCountLife();
 
 
                 break;
 
             case R.id.button3:
 
-                if (zufallszahl3 > zufallszahl) {
-                    if (zufallszahl3 > zufallszahl2) {
-                        if (zufallszahl3 > zufallszahl4) {
+                if (zufallszahl3 > zufallszahl && zufallszahl3 > zufallszahl2 && zufallszahl3 > zufallszahl4) {
 
                             //Score erhöhen:
-                            //textView_Feedback.setText("+");
-                            //textView_Feedback.setTextColor(Color.GREEN);
+                            textView_Feedback.setText("+");
+                            textView_Feedback.setTextColor(Color.GREEN);
                             score++;
                             scoreString = Integer.toString(score);
                             textView_score.setText(scoreString);
 
-
-                        }
-                    }
                 }
                 else
                 {
-                    //textView_Feedback.setText("-");
-                    //textView_Feedback.setTextColor(Color.RED);
+                    textView_Feedback.setText("-");
+                    textView_Feedback.setTextColor(Color.RED);
                     score = score + 0;
                     scoreString = Integer.toString(score);
                     textView_score.setText(scoreString);
+                    countLife--;
+                    Log.i(Hauptklasse.class.getSimpleName(), "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX3");
                 }
 
                 zufallszahl = 0;
@@ -292,52 +244,34 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
                 zufallszahl3 = 0;
                 zufallszahl4 = 0;
 
-
-                zufallszahl = (int) (Math.random() * 500) + 1;
-                zufallszahlString = Integer.toString(zufallszahl);
-                button1.setText(zufallszahlString);
-
-                zufallszahl2 = (int) (Math.random() * 500) + 1;
-                zufallszahlString2 = Integer.toString(zufallszahl2);
-                button2.setText(zufallszahlString2);
-
-                zufallszahl3 = (int) (Math.random() * 500) + 1;
-                zufallszahlString3 = Integer.toString(zufallszahl3);
-                button3.setText(zufallszahlString3);
-
-                zufallszahl4 = (int) (Math.random() * 500) + 1;
-                zufallszahlString4 = Integer.toString(zufallszahl4);
-                button4.setText(zufallszahlString4);
-
+                generateNumbers();
                 SameNumbers();
+                showIfGameOverWithCountLife();
 
 
                 break;
 
             case R.id.button4:
 
-                if (zufallszahl4 > zufallszahl) {
-                    if (zufallszahl4 > zufallszahl2) {
-                        if (zufallszahl4 > zufallszahl3) {
+                if (zufallszahl4 > zufallszahl && zufallszahl4 > zufallszahl2 && zufallszahl4 > zufallszahl3) {
 
                             //Score erhöhen:
-                            //textView_Feedback.setText("+");
-                            //textView_Feedback.setTextColor(Color.GREEN);
+                            textView_Feedback.setText("+");
+                            textView_Feedback.setTextColor(Color.GREEN);
                             score++;
                             scoreString = Integer.toString(score);
                             textView_score.setText(scoreString);
 
-
-                        }
-                    }
                 }
                 else
                 {
-                    //textView_Feedback.setText("-");
-                    //textView_Feedback.setTextColor(Color.RED);
+                    textView_Feedback.setText("-");
+                    textView_Feedback.setTextColor(Color.RED);
                     score = score + 0;
                     scoreString = Integer.toString(score);
                     textView_score.setText(scoreString);
+                    countLife--;
+                    Log.i(Hauptklasse.class.getSimpleName(), "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX4");
                 }
 
                 zufallszahl = 0;
@@ -345,25 +279,9 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
                 zufallszahl3 = 0;
                 zufallszahl4 = 0;
 
-
-                zufallszahl = (int) (Math.random() * 500) + 1;
-                zufallszahlString = Integer.toString(zufallszahl);
-                button1.setText(zufallszahlString);
-
-                zufallszahl2 = (int) (Math.random() * 500) + 1;
-                zufallszahlString2 = Integer.toString(zufallszahl2);
-                button2.setText(zufallszahlString2);
-
-                zufallszahl3 = (int) (Math.random() * 500) + 1;
-                zufallszahlString3 = Integer.toString(zufallszahl3);
-                button3.setText(zufallszahlString3);
-
-                zufallszahl4 = (int) (Math.random() * 500) + 1;
-                zufallszahlString4 = Integer.toString(zufallszahl4);
-                button4.setText(zufallszahlString4);
-
-
+                generateNumbers();
                 SameNumbers();
+                showIfGameOverWithCountLife();
 
                 break;
 
@@ -373,6 +291,34 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
     }
 
+    public void generateNumbers()
+    {
+
+        zufallszahl = (int) (Math.random() * 500) + 1;
+        zufallszahlString = Integer.toString(zufallszahl);
+        button1.setText(zufallszahlString);
+
+        zufallszahl2 = (int) (Math.random() * 500) + 1;
+        zufallszahlString2 = Integer.toString(zufallszahl2);
+        button2.setText(zufallszahlString2);
+
+        zufallszahl3 = (int) (Math.random() * 500) + 1;
+        zufallszahlString3 = Integer.toString(zufallszahl3);
+        button3.setText(zufallszahlString3);
+
+        zufallszahl4 = (int) (Math.random() * 500) + 1;
+        zufallszahlString4 = Integer.toString(zufallszahl4);
+        button4.setText(zufallszahlString4);
+
+    }
+
+    public void showIfGameOverWithCountLife()
+    {
+        if (countLife == 0)
+            counter = 0;
+
+        countLifeAusgabe.setText("Your lives: " + Integer.toString(countLife));
+    }
 
     public void SameNumbers()
     {
@@ -568,8 +514,6 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
         }
 
-
-
     }
 
     //Counter:
@@ -616,7 +560,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
     {
         //Rotes Blinken in den letzten 10 Sekunden
 
-        if (counter+1==10)
+        if (counter+1==10 || counter+1 == 8 || counter+1==6 || counter+1==4 || counter+1==2)
         {
             textView1.setTextColor(Color.RED);
             textView_score.setTextColor(Color.RED);
@@ -628,9 +572,9 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
             button4.setTextColor(Color.RED);
             pause_btn.setTextColor(Color.RED);
 
-
         }
-        if (counter+1==9)
+
+        if (counter+1==9 || counter+1==7 || counter+1==5 || counter+1==3 || counter+1==1)
         {
 
             textView1.setTextColor(Color.BLACK);
@@ -644,118 +588,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
             pause_btn.setTextColor(Color.BLACK);
 
         }
-        if (counter+1==8)
-        {
 
-            textView1.setTextColor(Color.RED);
-            textView_score.setTextColor(Color.RED);
-            textView_time.setTextColor(Color.RED);
-            textView2.setTextColor(Color.RED);
-            button1.setTextColor(Color.RED);
-            button2.setTextColor(Color.RED);
-            button3.setTextColor(Color.RED);
-            button4.setTextColor(Color.RED);
-            pause_btn.setTextColor(Color.RED);
-
-        }
-        if (counter+1==7)
-        {
-
-            textView1.setTextColor(Color.BLACK);
-            textView_score.setTextColor(Color.BLACK);
-            textView_time.setTextColor(Color.BLACK);
-            textView2.setTextColor(Color.BLACK);
-            button1.setTextColor(Color.BLACK);
-            button2.setTextColor(Color.BLACK);
-            button3.setTextColor(Color.BLACK);
-            button4.setTextColor(Color.BLACK);
-            pause_btn.setTextColor(Color.BLACK);
-
-        }
-        if (counter+1==6)
-        {
-
-            textView1.setTextColor(Color.RED);
-            textView_score.setTextColor(Color.RED);
-            textView_time.setTextColor(Color.RED);
-            textView2.setTextColor(Color.RED);
-            button1.setTextColor(Color.RED);
-            button2.setTextColor(Color.RED);
-            button3.setTextColor(Color.RED);
-            button4.setTextColor(Color.RED);
-            pause_btn.setTextColor(Color.RED);
-
-        }
-        if (counter+1==5)
-        {
-
-            textView1.setTextColor(Color.BLACK);
-            textView_score.setTextColor(Color.BLACK);
-            textView_time.setTextColor(Color.BLACK);
-            textView2.setTextColor(Color.BLACK);
-            button1.setTextColor(Color.BLACK);
-            button2.setTextColor(Color.BLACK);
-            button3.setTextColor(Color.BLACK);
-            button4.setTextColor(Color.BLACK);
-            pause_btn.setTextColor(Color.BLACK);
-
-        }
-        if (counter+1==4)
-        {
-
-            textView1.setTextColor(Color.RED);
-            textView_score.setTextColor(Color.RED);
-            textView_time.setTextColor(Color.RED);
-            textView2.setTextColor(Color.RED);
-            button1.setTextColor(Color.RED);
-            button2.setTextColor(Color.RED);
-            button3.setTextColor(Color.RED);
-            button4.setTextColor(Color.RED);
-            pause_btn.setTextColor(Color.RED);
-
-        }
-        if (counter+1==3)
-        {
-
-            textView1.setTextColor(Color.BLACK);
-            textView_score.setTextColor(Color.BLACK);
-            textView_time.setTextColor(Color.BLACK);
-            textView2.setTextColor(Color.BLACK);
-            button1.setTextColor(Color.BLACK);
-            button2.setTextColor(Color.BLACK);
-            button3.setTextColor(Color.BLACK);
-            button4.setTextColor(Color.BLACK);
-            pause_btn.setTextColor(Color.BLACK);
-
-        }
-        if (counter+1==2)
-        {
-
-            textView1.setTextColor(Color.RED);
-            textView_score.setTextColor(Color.RED);
-            textView_time.setTextColor(Color.RED);
-            textView2.setTextColor(Color.RED);
-            button1.setTextColor(Color.RED);
-            button2.setTextColor(Color.RED);
-            button3.setTextColor(Color.RED);
-            button4.setTextColor(Color.RED);
-            pause_btn.setTextColor(Color.RED);
-
-        }
-        if (counter+1==1)
-        {
-
-            textView1.setTextColor(Color.BLACK);
-            textView_score.setTextColor(Color.BLACK);
-            textView_time.setTextColor(Color.BLACK);
-            textView2.setTextColor(Color.BLACK);
-            button1.setTextColor(Color.BLACK);
-            button2.setTextColor(Color.BLACK);
-            button3.setTextColor(Color.BLACK);
-            button4.setTextColor(Color.BLACK);
-            pause_btn.setTextColor(Color.BLACK);
-
-        }
     }
 
     public void timeFinished()
