@@ -161,6 +161,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
                 generateNumbers(round);
                 showIfGameOverWithCountLife();
+                changeButtonColor();
 
 
                 break;
@@ -197,6 +198,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
                 generateNumbers(round);
                 showIfGameOverWithCountLife();
+                changeButtonColor();
 
 
                 break;
@@ -231,6 +233,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
                 generateNumbers(round);
                 showIfGameOverWithCountLife();
+                changeButtonColor();
 
 
                 break;
@@ -265,6 +268,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
                 generateNumbers(round);
                 showIfGameOverWithCountLife();
+                changeButtonColor();
 
                 break;
 
@@ -334,6 +338,78 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
             SameNumbers(100000);
         }
 
+
+    }
+
+
+    public void changeButtonColor()
+    {
+
+        if(round<5)
+        {
+
+            button1.setBackgroundColor(Color.GRAY);
+            button2.setBackgroundColor(Color.GRAY);
+            button3.setBackgroundColor(Color.GRAY);
+            button4.setBackgroundColor(Color.GRAY);
+
+        }
+        if (round>=5)
+        {
+            button1.setBackgroundColor(Color.BLUE);
+            button2.setBackgroundColor(Color.BLUE);
+            button3.setBackgroundColor(Color.BLUE);
+            button4.setBackgroundColor(Color.BLUE);
+
+        }
+        if (round>=8)
+        {
+
+            button1.setBackgroundColor(Color.BLUE);
+            button2.setBackgroundColor(Color.BLUE);
+            button3.setBackgroundColor(Color.BLUE);
+            button4.setBackgroundColor(Color.BLUE);
+
+        }
+        if (round>=15)
+        {
+            button1.setBackgroundColor(Color.YELLOW);
+            button2.setBackgroundColor(Color.YELLOW);
+            button3.setBackgroundColor(Color.YELLOW);
+            button4.setBackgroundColor(Color.YELLOW);
+
+        }
+        if (round>=20)
+        {
+            button1.setBackgroundColor(Color.RED);
+            button2.setBackgroundColor(Color.RED);
+            button3.setBackgroundColor(Color.RED);
+            button4.setBackgroundColor(Color.RED);
+
+        }
+        if (round>=25)
+        {
+            changeLimit(999);
+            SameNumbers(999);
+
+        }
+        if (round>=30)
+        {
+            changeLimit(9999);
+            SameNumbers(9999);
+
+        }
+        if (round>=40)
+        {
+            changeLimit(24999);
+            SameNumbers(24999);
+
+        }
+        if (round>=50)
+        {
+            changeLimit(100000);
+            SameNumbers(100000);
+        }
 
     }
 
