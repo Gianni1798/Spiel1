@@ -3,6 +3,7 @@ package com.example.giannirandone.spiel1;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -23,6 +24,7 @@ public class GameOverAusgabeseite extends AppCompatActivity
     TextView textView_missingPointsToNewHSNumber;
     Button btn_restartGame;
     Button btn_backHome;
+    Vibrator GameOverVibrator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,8 @@ public class GameOverAusgabeseite extends AppCompatActivity
         textView_missingPointsToNewHSNumber = (TextView) findViewById(R.id.textView_missingPointsToNewHSNumber);
         btn_restartGame = (Button) findViewById(R.id.btn_restartGame);
         btn_backHome = (Button) findViewById(R.id.btn_backHome);
+
+        GameOverVibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
 
         btn_restartGame.setOnClickListener(v -> {
             Intent i = new Intent (GameOverAusgabeseite.this, Hauptklasse.class);
@@ -95,6 +99,7 @@ public class GameOverAusgabeseite extends AppCompatActivity
             textView_NewHighScore.setText("NEW HIGHSCORE!");
             textView_NewHighScore.setTextColor(Color.RED);
             textView_scoreAusgabe.setTextColor(Color.RED);
+            GameOverVibrator.vibrate(1000);
         }
         else
         {
@@ -104,6 +109,8 @@ public class GameOverAusgabeseite extends AppCompatActivity
 
             textView_missingPointsToNewHS.setText("Missing Points to new Highscore:");
             textView_missingPointsToNewHSNumber.setText(Integer.toString(HS + 1 - Integer.valueOf(scoreUebergabe)));
+
+            GameOverVibrator.vibrate(50);
         }
 
         textView_actualHighscore.setText(Integer.toString(score.getInt("score", 0)));

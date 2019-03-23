@@ -3,6 +3,7 @@ package com.example.giannirandone.spiel1;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.CountDownTimer;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -43,6 +44,9 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
     boolean pause_onStart = true;
     int countLife = 3;
     int round = 0;
+    Vibrator scoreRow;
+    int scoreRowCount;
+
 
 
     @Override
@@ -69,6 +73,8 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         button3.setOnClickListener((View.OnClickListener)this);
         button4.setOnClickListener((View.OnClickListener)this);
 
+        scoreRow = (Vibrator)getSystemService(VIBRATOR_SERVICE);
+
     }
 
     @Override
@@ -89,6 +95,8 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         score = 0;
         scoreString = Integer.toString(score);
         textView_score.setText(scoreString);
+
+        scoreRowCount = 0;
 
         //Ende Score
 
@@ -140,6 +148,8 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
                             score++;
                             scoreString = Integer.toString(score);
                             textView_score.setText(scoreString);
+                            scoreRowCount++;
+                            vibrateScoreRow();
 
                 }
                 else
@@ -150,7 +160,9 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
                     scoreString = Integer.toString(score);
                     textView_score.setText(scoreString);
                     countLife--;
+                    scoreRowCount = 0;
                     Log.i(Hauptklasse.class.getSimpleName(), "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX1");
+
                 }
 
 
@@ -177,6 +189,8 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
                             score++;
                             scoreString = Integer.toString(score);
                             textView_score.setText(scoreString);
+                            scoreRowCount++;
+                            vibrateScoreRow();
 
                 }
                 else
@@ -187,6 +201,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
                     scoreString = Integer.toString(score);
                     textView_score.setText(scoreString);
                     countLife--;
+                    scoreRowCount = 0;
                     Log.i(Hauptklasse.class.getSimpleName(), "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX2");
 
                 }
@@ -213,6 +228,8 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
                             score++;
                             scoreString = Integer.toString(score);
                             textView_score.setText(scoreString);
+                            scoreRowCount++;
+                            vibrateScoreRow();
 
                 }
                 else
@@ -223,6 +240,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
                     scoreString = Integer.toString(score);
                     textView_score.setText(scoreString);
                     countLife--;
+                    scoreRowCount = 0;
                     Log.i(Hauptklasse.class.getSimpleName(), "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX3");
                 }
 
@@ -248,7 +266,8 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
                             score++;
                             scoreString = Integer.toString(score);
                             textView_score.setText(scoreString);
-
+                            scoreRowCount++;
+                            vibrateScoreRow();
                 }
                 else
                 {
@@ -258,6 +277,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
                     scoreString = Integer.toString(score);
                     textView_score.setText(scoreString);
                     countLife--;
+                    scoreRowCount = 0;
                     Log.i(Hauptklasse.class.getSimpleName(), "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX4");
                 }
 
@@ -275,6 +295,20 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
         }
 
+
+    }
+
+    public void vibrateScoreRow()
+    {
+
+        if(scoreRowCount == 2)
+            scoreRow.vibrate(150);
+        if (scoreRowCount == 3)
+            scoreRow.vibrate(250);
+        if (scoreRowCount == 4)
+            scoreRow.vibrate(500);
+        if (scoreRowCount > 4)
+            scoreRow.vibrate(850);
 
     }
 
