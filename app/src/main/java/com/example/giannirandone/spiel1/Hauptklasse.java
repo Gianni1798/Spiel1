@@ -43,7 +43,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
     private long timeLeftInMillis = startTimeInMillis;
     boolean pause_onStart = true;
     int countLife = 3;
-    int round = 0;
+    int round = 1;
     Vibrator scoreRow;
     int scoreRowCount;
 
@@ -101,7 +101,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         //Ende Score
 
         countLife = 3;
-        round = 0;
+        round = 1;
         counter = 60;
 
         timer.cancel();
@@ -317,61 +317,51 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
         round++;
 
-
         if(roundNumber<5)
         {
            changeLimit(9);
            SameNumbers(9);
-
         }
         if (roundNumber>=5)
         {
             changeLimit(35);
             SameNumbers(35);
-
         }
         if (roundNumber>=8)
         {
             changeLimit(99);
             SameNumbers(99);
-
         }
         if (roundNumber>=15)
         {
             changeLimit(250);
             SameNumbers(250);
-
         }
         if (roundNumber>=20)
         {
             changeLimit(400);
             SameNumbers(400);
-
         }
         if (roundNumber>=25)
         {
             changeLimit(999);
             SameNumbers(999);
-
         }
         if (roundNumber>=30)
         {
             changeLimit(9999);
             SameNumbers(9999);
-
         }
         if (roundNumber>=40)
         {
             changeLimit(24999);
             SameNumbers(24999);
-
         }
         if (roundNumber>=50)
         {
             changeLimit(100000);
             SameNumbers(100000);
         }
-
 
     }
 
