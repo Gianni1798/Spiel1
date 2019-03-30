@@ -108,6 +108,12 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         resetTimer();
         textView_time.setText(" " + String.valueOf(counter) + " Sec.");
 
+        button1.setBackgroundColor(Color.TRANSPARENT);
+        button2.setBackgroundColor(Color.TRANSPARENT);
+        button3.setBackgroundColor(Color.TRANSPARENT);
+        button4.setBackgroundColor(Color.TRANSPARENT);
+
+        textView_Feedback.setText("");
         /*
         Problembehebung:
         Wenn Activity im Pause-Modus gestartet wird,
@@ -369,6 +375,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
     public void changeButtonColor()
     {
 
+        /*
         if(round<5)
         {
 
@@ -378,6 +385,8 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
             button4.setBackgroundColor(Color.GRAY);
 
         }
+        */
+
         if (round>=5)
         {
             button1.setBackgroundColor(Color.BLUE);
