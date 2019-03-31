@@ -6,6 +6,7 @@ import android.os.CountDownTimer;
 import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Layout;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -46,7 +47,6 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
     int round = 1;
     Vibrator scoreRow;
     int scoreRowCount;
-
 
 
     @Override
@@ -127,6 +127,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         timeLeftInMillis = startTimeInMillis;
 
         showIfGameOverWithCountLife();
+
 
     }
 
@@ -389,36 +390,39 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
         if (round>=5)
         {
+            /*
             button1.setBackgroundColor(Color.BLUE);
             button2.setBackgroundColor(Color.BLUE);
             button3.setBackgroundColor(Color.BLUE);
             button4.setBackgroundColor(Color.BLUE);
-
+*/
         }
         if (round>=8)
         {
-
+/*
             button1.setBackgroundColor(Color.BLUE);
             button2.setBackgroundColor(Color.BLUE);
             button3.setBackgroundColor(Color.BLUE);
             button4.setBackgroundColor(Color.BLUE);
-
+*/
         }
         if (round>=15)
         {
+            /*
             button1.setBackgroundColor(Color.YELLOW);
             button2.setBackgroundColor(Color.YELLOW);
             button3.setBackgroundColor(Color.YELLOW);
             button4.setBackgroundColor(Color.YELLOW);
-
+*/
         }
         if (round>=20)
         {
+            /*
             button1.setBackgroundColor(Color.RED);
             button2.setBackgroundColor(Color.RED);
             button3.setBackgroundColor(Color.RED);
             button4.setBackgroundColor(Color.RED);
-
+*/
         }
         if (round>=25)
         {
@@ -711,10 +715,26 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
     public void blinken()
     {
+
+        //Gelbes Blinken in den letzten 10 Sekunden
+
+        View view = this.getWindow().getDecorView();
+
+        if (counter+1 == 15 || counter+1 == 13 || counter+1 == 11)
+        {
+            view.setBackgroundColor(Color.YELLOW);
+        }
+
+        if (counter+1 == 14 || counter+1 == 12)
+        {
+            view.setBackgroundColor(Color.WHITE);
+        }
+
         //Rotes Blinken in den letzten 10 Sekunden
 
         if (counter+1==10 || counter+1 == 8 || counter+1==6 || counter+1==4 || counter+1==2)
         {
+           /*
             textView1.setTextColor(Color.RED);
             textView_score.setTextColor(Color.RED);
             textView_time.setTextColor(Color.RED);
@@ -724,12 +744,13 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
             button3.setTextColor(Color.RED);
             button4.setTextColor(Color.RED);
             pause_btn.setTextColor(Color.RED);
-
+*/
+            view.setBackgroundColor(Color.RED);
         }
 
         if (counter+1==9 || counter+1==7 || counter+1==5 || counter+1==3 || counter+1==1)
         {
-
+/*
             textView1.setTextColor(Color.BLACK);
             textView_score.setTextColor(Color.BLACK);
             textView_time.setTextColor(Color.BLACK);
@@ -739,7 +760,8 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
             button3.setTextColor(Color.BLACK);
             button4.setTextColor(Color.BLACK);
             pause_btn.setTextColor(Color.BLACK);
-
+*/
+            view.setBackgroundColor(Color.WHITE);
         }
 
     }
