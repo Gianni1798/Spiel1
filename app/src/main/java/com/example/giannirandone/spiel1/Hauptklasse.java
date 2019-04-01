@@ -89,6 +89,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         super.onStart();
 
         //Erzeuge Zufallszahlen und gleichzeitige Überprüfung auf Gleicheit der Zahlen:
+        round = 1;
         generateNumbers(round);
         //Ende Zufallszahlen
 
@@ -101,7 +102,6 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         //Ende Score
 
         countLife = 3;
-        round = 1;
         counter = 60;
 
         timer.cancel();
@@ -308,7 +308,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
     public void vibrateScoreRow()
     {
 
-        if(scoreRowCount == 2)
+        if (scoreRowCount == 2)
             scoreRow.vibrate(150);
         if (scoreRowCount == 3)
             scoreRow.vibrate(250);
