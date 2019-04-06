@@ -36,7 +36,6 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
     int counter = 60;
     TextView textView1;
     TextView textView2;
-    TextView textView_Feedback;
     TextView countLifeAusgabe;
     Button pause_btn;
     boolean pause_check = false;
@@ -63,7 +62,6 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         textView_time = (TextView) findViewById(R.id.textView_time);
         textView1 = (TextView) findViewById(R.id.textView1);
         textView2 = (TextView) findViewById(R.id.textView2);
-        textView_Feedback = (TextView) findViewById(R.id.textView_Feedback);
         countLifeAusgabe = (TextView) findViewById(R.id.countLifeAusgabe);
         pause_btn = (Button) findViewById(R.id.pause_btn);
 
@@ -113,7 +111,6 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         button3.setBackgroundColor(Color.TRANSPARENT);
         button4.setBackgroundColor(Color.TRANSPARENT);
 
-        textView_Feedback.setText("");
         /*
         Problembehebung:
         Wenn Activity im Pause-Modus gestartet wird,
@@ -150,8 +147,6 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
 
                             //Score erhöhen:
-                            textView_Feedback.setText("+");
-                            textView_Feedback.setTextColor(Color.GREEN);
                             score++;
                             scoreString = Integer.toString(score);
                             textView_score.setText(scoreString);
@@ -161,8 +156,6 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
                 }
                 else
                 {
-                    textView_Feedback.setText("-");
-                    textView_Feedback.setTextColor(Color.RED);
                     score = score + 0;
                     scoreString = Integer.toString(score);
                     textView_score.setText(scoreString);
@@ -191,8 +184,6 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
                 if (zufallszahl2 > zufallszahl && zufallszahl2 > zufallszahl3 && zufallszahl2 > zufallszahl4) {
 
                             //Score erhöhen:
-                            textView_Feedback.setText("+");
-                            textView_Feedback.setTextColor(Color.GREEN);
                             score++;
                             scoreString = Integer.toString(score);
                             textView_score.setText(scoreString);
@@ -202,8 +193,6 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
                 }
                 else
                 {
-                    textView_Feedback.setText("-");
-                    textView_Feedback.setTextColor(Color.RED);
                     score = score + 0;
                     scoreString = Integer.toString(score);
                     textView_score.setText(scoreString);
@@ -230,8 +219,6 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
                 if (zufallszahl3 > zufallszahl && zufallszahl3 > zufallszahl2 && zufallszahl3 > zufallszahl4) {
 
                             //Score erhöhen:
-                            textView_Feedback.setText("+");
-                            textView_Feedback.setTextColor(Color.GREEN);
                             score++;
                             scoreString = Integer.toString(score);
                             textView_score.setText(scoreString);
@@ -241,8 +228,6 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
                 }
                 else
                 {
-                    textView_Feedback.setText("-");
-                    textView_Feedback.setTextColor(Color.RED);
                     score = score + 0;
                     scoreString = Integer.toString(score);
                     textView_score.setText(scoreString);
@@ -268,8 +253,6 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
                 if (zufallszahl4 > zufallszahl && zufallszahl4 > zufallszahl2 && zufallszahl4 > zufallszahl3) {
 
                             //Score erhöhen:
-                            textView_Feedback.setText("+");
-                            textView_Feedback.setTextColor(Color.GREEN);
                             score++;
                             scoreString = Integer.toString(score);
                             textView_score.setText(scoreString);
@@ -278,8 +261,6 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
                 }
                 else
                 {
-                    textView_Feedback.setText("-");
-                    textView_Feedback.setTextColor(Color.RED);
                     score = score + 0;
                     scoreString = Integer.toString(score);
                     textView_score.setText(scoreString);
@@ -712,56 +693,34 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         timeLeftInMillis = startTimeInMillis;
     }
 
+    View viewHauptklasse = this.getWindow().getDecorView();
 
     public void blinken()
     {
 
         //Gelbes Blinken in den letzten 10 Sekunden
 
-        View view = this.getWindow().getDecorView();
 
         if (counter+1 == 15 || counter+1 == 13 || counter+1 == 11)
         {
-            view.setBackgroundColor(Color.YELLOW);
+            viewHauptklasse.setBackgroundColor(Color.YELLOW);
         }
 
         if (counter+1 == 14 || counter+1 == 12)
         {
-            view.setBackgroundColor(Color.WHITE);
+            viewHauptklasse.setBackgroundColor(Color.WHITE);
         }
 
         //Rotes Blinken in den letzten 10 Sekunden
 
         if (counter+1==10 || counter+1 == 8 || counter+1==6 || counter+1==4 || counter+1==2)
         {
-           /*
-            textView1.setTextColor(Color.RED);
-            textView_score.setTextColor(Color.RED);
-            textView_time.setTextColor(Color.RED);
-            textView2.setTextColor(Color.RED);
-            button1.setTextColor(Color.RED);
-            button2.setTextColor(Color.RED);
-            button3.setTextColor(Color.RED);
-            button4.setTextColor(Color.RED);
-            pause_btn.setTextColor(Color.RED);
-*/
-            view.setBackgroundColor(Color.RED);
+            viewHauptklasse.setBackgroundColor(Color.RED);
         }
 
         if (counter+1==9 || counter+1==7 || counter+1==5 || counter+1==3 || counter+1==1)
         {
-/*
-            textView1.setTextColor(Color.BLACK);
-            textView_score.setTextColor(Color.BLACK);
-            textView_time.setTextColor(Color.BLACK);
-            textView2.setTextColor(Color.BLACK);
-            button1.setTextColor(Color.BLACK);
-            button2.setTextColor(Color.BLACK);
-            button3.setTextColor(Color.BLACK);
-            button4.setTextColor(Color.BLACK);
-            pause_btn.setTextColor(Color.BLACK);
-*/
-            view.setBackgroundColor(Color.WHITE);
+            viewHauptklasse.setBackgroundColor(Color.WHITE);
         }
 
     }
@@ -837,15 +796,6 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
     }
 
     //Ende Pause-Button
-
-    @Override
-    protected void onStop()
-    {
-        super.onStop();
-
-
-
-    }
 
 
 }
