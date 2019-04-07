@@ -86,6 +86,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
     {
         super.onStart();
 
+        Log.i(Hauptklasse.class.getSimpleName(), "onStart##########################################################################");
         //Erzeuge Zufallszahlen und gleichzeitige Überprüfung auf Gleicheit der Zahlen:
         round = 1;
         generateNumbers(round);
@@ -693,11 +694,11 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         timeLeftInMillis = startTimeInMillis;
     }
 
-    View viewHauptklasse = this.getWindow().getDecorView();
 
     public void blinken()
     {
 
+        View viewHauptklasse = this.getWindow().getDecorView();
         //Gelbes Blinken in den letzten 10 Sekunden
 
 

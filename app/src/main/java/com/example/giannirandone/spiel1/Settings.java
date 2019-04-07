@@ -20,6 +20,7 @@ public class Settings extends AppCompatActivity {
     Switch switch_Color;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,29 +34,55 @@ public class Settings extends AppCompatActivity {
 
         Log.i(Settings.class.getSimpleName(),"HIGHSCORE GESETZT");
 
-        View viewSettings = this.getWindow().getDecorView();
-
 
         switch_Color.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
 
+                Log.i(Settings.class.getSimpleName(), "SWITCH ONCHECKED");
+                int colorStatus = 0;
+
+                SharedPreferences colorStatusNumber = getSharedPreferences("number", colorStatus);
+                SharedPreferences.Editor editor = colorStatusNumber.edit();
 
                 if (b == true)
                 {
-                    viewSettings.setBackgroundColor(Color.GRAY);
-                    Toast.makeText(Settings.this, "Color changed to gray", Toast.LENGTH_SHORT).show();
-
+                    colorStatus = 1;
+                    editor.putInt("number", colorStatus);
+                    editor.commit();
+                    colorCheck();
                 }else
                 {
-                    viewSettings.setBackgroundColor(Color.WHITE);
-                    Toast.makeText(Settings.this, "Color changed to white", Toast.LENGTH_SHORT).show();
+                    colorStatus = 0;
+                    editor.putInt("number", colorStatus);
+                    editor.commit();
+                    colorCheck();
                 }
 
+                Log.i(Settings.class.getSimpleName(), "SWITCH ONCHECKED 2");
             }
         });
 
 
+    }
+
+
+    public void colorCheck()
+    {
+        View viewSettings = this.getWindow().getDecorView();
+        SharedPreferences colorCheck = this.getSharedPreferences("number", 0);
+        int colorCheckNumber = colorCheck.getInt("number", 0);
+
+        if (colorCheckNumber == 0)
+        {
+            viewSettings.setBackgroundColor(Color.WHITE);
+            Toast.makeText(Settings.this, "Color changed to white", Toast.LENGTH_SHORT).show();
+
+        }else if (colorCheckNumber == 1)
+        {
+            viewSettings.setBackgroundColor(Color.GRAY);
+            Toast.makeText(Settings.this, "Color changed to gray", Toast.LENGTH_SHORT).show();
+        }
     }
 
 
@@ -64,7 +91,6 @@ public class Settings extends AppCompatActivity {
     {
 
         Log.i(Settings.class.getSimpleName(), "onClick_SETTINGS");
-
 
     }
 
