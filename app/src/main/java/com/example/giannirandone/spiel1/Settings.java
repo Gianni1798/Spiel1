@@ -1,6 +1,5 @@
 package com.example.giannirandone.spiel1;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
@@ -8,18 +7,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
-import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ToggleButton;
 
 public class Settings extends AppCompatActivity {
 
     TextView settingsTextViewHighscoreAusgabe;
     Switch switch_Color;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +27,11 @@ public class Settings extends AppCompatActivity {
         SharedPreferences highscore = getSharedPreferences("score", 0);
         settingsTextViewHighscoreAusgabe.setText(Integer.toString(highscore.getInt("score", 0)));
 
-        Log.i(Settings.class.getSimpleName(),"HIGHSCORE GESETZT");
+        SharedPreferences colorCheck = this.getSharedPreferences("number", 0);
+        int colorCheckNumber = colorCheck.getInt("number", 0);
 
+        Log.i(Settings.class.getSimpleName(),"HIGHSCORE GESETZT");
+        View viewSettings = this.getWindow().getDecorView();
 
         switch_Color.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -45,53 +43,62 @@ public class Settings extends AppCompatActivity {
                 SharedPreferences colorStatusNumber = getSharedPreferences("number", colorStatus);
                 SharedPreferences.Editor editor = colorStatusNumber.edit();
 
-                if (b == true)
+                if (b)
                 {
                     colorStatus = 1;
                     editor.putInt("number", colorStatus);
                     editor.commit();
-                    colorCheck();
+                    viewSettings.setBackgroundColor(Color.rgb(176,196,222));
                 }else
                 {
                     colorStatus = 0;
                     editor.putInt("number", colorStatus);
                     editor.commit();
-                    colorCheck();
+                    viewSettings.setBackgroundColor(Color.WHITE);
                 }
 
                 Log.i(Settings.class.getSimpleName(), "SWITCH ONCHECKED 2");
             }
         });
 
+    }
 
+    protected void onStart()
+    {
+        super.onStart();
+        SharedPreferences colorCheck = this.getSharedPreferences("number", 0);
+        int colorCheckNumber = colorCheck.getInt("number", 0);
+        loadInitialSwitchState(colorCheckNumber);
     }
 
 
-    public void colorCheck()
+    public void loadBackgroundColor(int colorCheckNumber)
     {
         View viewSettings = this.getWindow().getDecorView();
-        SharedPreferences colorCheck = this.getSharedPreferences("number", 0);
-        int colorCheckNumber = colorCheck.getInt("number", 0);
 
         if (colorCheckNumber == 0)
         {
             viewSettings.setBackgroundColor(Color.WHITE);
-            Toast.makeText(Settings.this, "Color changed to white", Toast.LENGTH_SHORT).show();
-
         }else if (colorCheckNumber == 1)
         {
-            viewSettings.setBackgroundColor(Color.GRAY);
-            Toast.makeText(Settings.this, "Color changed to gray", Toast.LENGTH_SHORT).show();
+            viewSettings.setBackgroundColor(Color.rgb(176,196,222));
         }
     }
 
-
+    public void loadInitialSwitchState(int colorCheckNumber)
+    {
+        if (colorCheckNumber == 0)
+        {
+            switch_Color.setChecked(false);
+        }else if (colorCheckNumber == 1)
+        {
+            switch_Color.setChecked(true);
+        }
+    }
 
     public void onClick(View v)
     {
-
         Log.i(Settings.class.getSimpleName(), "onClick_SETTINGS");
-
     }
 
 }

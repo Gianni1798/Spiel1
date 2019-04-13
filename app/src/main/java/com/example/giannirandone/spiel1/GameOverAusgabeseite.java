@@ -117,7 +117,26 @@ public class GameOverAusgabeseite extends AppCompatActivity
 
     }
 
+    protected void onStart()
+    {
+        super.onStart();
+        SharedPreferences colorCheck = this.getSharedPreferences("number", 0);
+        int colorCheckNumber = colorCheck.getInt("number", 0);
+        loadBackgroundColor(colorCheckNumber);
+    }
 
+    public void loadBackgroundColor(int colorCheckNumber)
+    {
+        View viewGOA = this.getWindow().getDecorView();
+
+        if (colorCheckNumber == 0)
+        {
+            viewGOA.setBackgroundColor(Color.WHITE);
+        }else if (colorCheckNumber == 1)
+        {
+            viewGOA.setBackgroundColor(Color.rgb(176,196,222));
+        }
+    }
 
     @Override
     public void onBackPressed()

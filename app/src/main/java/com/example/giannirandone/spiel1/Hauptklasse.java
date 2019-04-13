@@ -1,6 +1,7 @@
 package com.example.giannirandone.spiel1;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.CountDownTimer;
 import android.os.Vibrator;
@@ -14,7 +15,6 @@ import android.widget.TextView;
 
 public class Hauptklasse extends AppCompatActivity implements View.OnClickListener
 {
-
 
     Button button1;
     Button button2;
@@ -65,7 +65,6 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         countLifeAusgabe = (TextView) findViewById(R.id.countLifeAusgabe);
         pause_btn = (Button) findViewById(R.id.pause_btn);
 
-
         button1.setOnClickListener((View.OnClickListener)this);
         button2.setOnClickListener((View.OnClickListener)this);
         button3.setOnClickListener((View.OnClickListener)this);
@@ -73,12 +72,9 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
         scoreRow = (Vibrator)getSystemService(VIBRATOR_SERVICE);
 
-    }
+        SharedPreferences colorCheck = this.getSharedPreferences("number", 0);
+        int colorCheckNumber = colorCheck.getInt("number", 0);
 
-    @Override
-    public void onBackPressed()
-    {
-        //Deaktiviert den Backward-Navigation-Button
     }
 
     @Override
@@ -126,7 +122,30 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
         showIfGameOverWithCountLife();
 
+        SharedPreferences colorCheck = this.getSharedPreferences("number", 0);
+        int colorCheckNumber = colorCheck.getInt("number", 0);
+            loadBackgroundColor(colorCheckNumber);
 
+
+    }
+
+    public void loadBackgroundColor(int colorCheckNumber)
+    {
+        View viewSHauptklasse = this.getWindow().getDecorView();
+
+        if (colorCheckNumber == 0)
+        {
+            viewSHauptklasse.setBackgroundColor(Color.WHITE);
+        }else if (colorCheckNumber == 1)
+        {
+            viewSHauptklasse.setBackgroundColor(Color.rgb(176,196,222));
+        }
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        //Deaktiviert den Backward-Navigation-Button
     }
 
 
@@ -283,13 +302,10 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
 
         }
-
-
     }
 
     public void vibrateScoreRow()
     {
-
         if (scoreRowCount == 2)
             scoreRow.vibrate(150);
         if (scoreRowCount == 3)
@@ -298,14 +314,11 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
             scoreRow.vibrate(500);
         if (scoreRowCount > 4)
             scoreRow.vibrate(850);
-
     }
 
     public void generateNumbers(int roundNumber)
     {
-
         round++;
-
         if(roundNumber<5)
         {
            changeLimit(9);
@@ -351,9 +364,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
             changeLimit(100000);
             SameNumbers(100000);
         }
-
     }
-
 
     public void changeButtonColor()
     {
@@ -366,7 +377,6 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
             button2.setBackgroundColor(Color.GRAY);
             button3.setBackgroundColor(Color.GRAY);
             button4.setBackgroundColor(Color.GRAY);
-
         }
         */
 
@@ -410,26 +420,22 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         {
             changeLimit(999);
             SameNumbers(999);
-
         }
         if (round>=30)
         {
             changeLimit(9999);
             SameNumbers(9999);
-
         }
         if (round>=40)
         {
             changeLimit(24999);
             SameNumbers(24999);
-
         }
         if (round>=50)
         {
             changeLimit(100000);
             SameNumbers(100000);
         }
-
     }
 
     public void changeLimit(int limit)
@@ -474,7 +480,6 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
                 zufallszahlString2 = Integer.toString(zufallszahl2);
                 button2.setText(zufallszahlString2);
             }
-
         }
 
         while (zufallszahl == zufallszahl3)
@@ -487,7 +492,6 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
                 zufallszahlString3 = Integer.toString(zufallszahl3);
                 button3.setText(zufallszahlString3);
             }
-
         }
 
         while (zufallszahl == zufallszahl4)
@@ -500,7 +504,6 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
                 zufallszahlString4 = Integer.toString(zufallszahl4);
                 button4.setText(zufallszahlString4);
             }
-
         }
 
 
@@ -517,7 +520,6 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
                 zufallszahlString = Integer.toString(zufallszahl);
                 button1.setText(zufallszahlString);
             }
-
         }
 
         while (zufallszahl2 == zufallszahl3)
@@ -557,7 +559,6 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
                 zufallszahlString = Integer.toString(zufallszahl);
                 button1.setText(zufallszahlString);
             }
-
         }
 
         while (zufallszahl3 == zufallszahl2)
@@ -596,7 +597,6 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
                 zufallszahlString = Integer.toString(zufallszahl);
                 button1.setText(zufallszahlString);
             }
-
         }
 
         while (zufallszahl4 == zufallszahl2)
@@ -622,18 +622,12 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
                 button3.setText(zufallszahlString3);
             }
         }
-
-
     }
-
 
     public void counterCheck()
     {
-
         if (pause_check == false)
         {
-
-
             if(!(counter==0))
             {
                 textView_time.setText(" " + (String.valueOf(counter)) + " Sec.");
@@ -641,18 +635,13 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
             {
                 textView_time.setText("");
             }
-
             counter--;
-
         }
         else
         {
-
             textView_time.setText(" " + (String.valueOf(counter)) + " Sec.");
             timeFinished();
-
         }
-
     }
 
     //Counter:
@@ -688,16 +677,16 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
     }.start();    //Ende Counter
 
-
     private void resetTimer()
     {
         timeLeftInMillis = startTimeInMillis;
     }
 
-
     public void blinken()
     {
 
+        SharedPreferences colorCheck = this.getSharedPreferences("number", 0);
+        int colorCheckNumber = colorCheck.getInt("number", 0);
         View viewHauptklasse = this.getWindow().getDecorView();
         //Gelbes Blinken in den letzten 10 Sekunden
 
@@ -709,7 +698,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
         if (counter+1 == 14 || counter+1 == 12)
         {
-            viewHauptklasse.setBackgroundColor(Color.WHITE);
+            loadBackgroundColor(colorCheckNumber);
         }
 
         //Rotes Blinken in den letzten 10 Sekunden
@@ -721,7 +710,8 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
         if (counter+1==9 || counter+1==7 || counter+1==5 || counter+1==3 || counter+1==1)
         {
-            viewHauptklasse.setBackgroundColor(Color.WHITE);
+            //loadBackgroundColor(colorCheckNumber);
+            viewHauptklasse.setBackgroundColor(Color.YELLOW);
         }
 
     }

@@ -3,6 +3,9 @@ package com.example.giannirandone.spiel1;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.ColorSpace;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +13,8 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.util.Set;
 
 
 public class Startseite extends AppCompatActivity implements View.OnClickListener
@@ -35,6 +40,32 @@ public class Startseite extends AppCompatActivity implements View.OnClickListene
 
         btn_Einstellungen = (Button) findViewById(R.id.btn_Einstellungen);
         btn_Einstellungen.setOnClickListener(this);
+
+        SharedPreferences colorCheck = this.getSharedPreferences("number", 0);
+        int colorCheckNumber = colorCheck.getInt("number", 0);
+        loadBackgroundColor(colorCheckNumber);
+    }
+
+    protected void onStart()
+    {
+        super.onStart();
+        SharedPreferences colorCheck = this.getSharedPreferences("number", 0);
+        int colorCheckNumber = colorCheck.getInt("number", 0);
+        loadBackgroundColor(colorCheckNumber);
+    }
+
+
+    public void loadBackgroundColor(int colorCheckNumber)
+    {
+        View viewStartseite = this.getWindow().getDecorView();
+
+        if (colorCheckNumber == 0)
+        {
+            viewStartseite.setBackgroundColor(Color.WHITE);
+        }else if (colorCheckNumber == 1)
+        {
+            viewStartseite.setBackgroundColor(Color.rgb(176,196,222));
+        }
     }
 
     public void onClick (View e)
