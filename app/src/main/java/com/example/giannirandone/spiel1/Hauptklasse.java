@@ -3,6 +3,7 @@ package com.example.giannirandone.spiel1;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
@@ -46,6 +47,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
     int round = 1;
     Vibrator scoreRow;
     int scoreRowCount;
+    MediaPlayer soundFeedbackScoreRow;
 
 
     @Override
@@ -71,6 +73,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         button4.setOnClickListener((View.OnClickListener)this);
 
         scoreRow = (Vibrator)getSystemService(VIBRATOR_SERVICE);
+        final MediaPlayer soundFeedbackScoreRow = MediaPlayer.create(this, R.raw.soundtest1);
 
         SharedPreferences colorCheck = this.getSharedPreferences("number", 0);
         int colorCheckNumber = colorCheck.getInt("number", 0);
@@ -155,9 +158,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
     {
 
 
-
         switch (v.getId()) {
-
 
 
             case R.id.button1:
@@ -172,6 +173,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
                             textView_score.setText(scoreString);
                             scoreRowCount++;
                             vibrateScoreRow();
+                            //soundFeedbackScoreRow.start();
 
                 }
                 else
@@ -209,6 +211,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
                             textView_score.setText(scoreString);
                             scoreRowCount++;
                             vibrateScoreRow();
+                            //soundFeedbackScoreRow.start();
 
                 }
                 else
@@ -244,6 +247,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
                             textView_score.setText(scoreString);
                             scoreRowCount++;
                             vibrateScoreRow();
+                            //soundFeedbackScoreRow.start();
 
                 }
                 else
@@ -278,6 +282,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
                             textView_score.setText(scoreString);
                             scoreRowCount++;
                             vibrateScoreRow();
+                            //soundFeedbackScoreRow.start();
                 }
                 else
                 {
