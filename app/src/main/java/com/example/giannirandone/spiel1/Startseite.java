@@ -66,7 +66,6 @@ public class Startseite extends AppCompatActivity implements View.OnClickListene
         loadBackgroundColor(colorCheckNumber);
     }
 
-
     public void loadBackgroundColor(int colorCheckNumber)
     {
         View viewStartseite = this.getWindow().getDecorView();

@@ -14,6 +14,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
+
 public class Hauptklasse extends AppCompatActivity implements View.OnClickListener
 {
 
@@ -48,7 +53,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
     Vibrator scoreRow;
     int scoreRowCount;
     MediaPlayer soundFeedbackScoreRow;
-
+    private InterstitialAd interstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -73,7 +78,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         button4.setOnClickListener((View.OnClickListener)this);
 
         scoreRow = (Vibrator)getSystemService(VIBRATOR_SERVICE);
-        final MediaPlayer soundFeedbackScoreRow = MediaPlayer.create(this, R.raw.soundtest1);
+        //final MediaPlayer soundFeedbackScoreRow = MediaPlayer.create(this, R.raw.soundtest1);
 
         SharedPreferences colorCheck = this.getSharedPreferences("number", 0);
         int colorCheckNumber = colorCheck.getInt("number", 0);
@@ -648,6 +653,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
             timeFinished();
         }
     }
+
 
     //Counter:
 

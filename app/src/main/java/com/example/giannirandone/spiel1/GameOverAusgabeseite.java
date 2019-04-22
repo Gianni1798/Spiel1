@@ -10,6 +10,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 import org.w3c.dom.Text;
 
 public class GameOverAusgabeseite extends AppCompatActivity
@@ -25,6 +29,7 @@ public class GameOverAusgabeseite extends AppCompatActivity
     Button btn_restartGame;
     Button btn_backHome;
     Vibrator GameOverVibrator;
+    AdView adView_GOA;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +46,11 @@ public class GameOverAusgabeseite extends AppCompatActivity
         textView_missingPointsToNewHSNumber = (TextView) findViewById(R.id.textView_missingPointsToNewHSNumber);
         btn_restartGame = (Button) findViewById(R.id.btn_restartGame);
         btn_backHome = (Button) findViewById(R.id.btn_backHome);
+        adView_GOA = (AdView) findViewById(R.id.adView_GOA);
+
+        MobileAds.initialize(this, "ca-app-pub-3940256099942544/6300978111");
+        AdRequest adRequest2 = new AdRequest.Builder().build();
+        adView_GOA.loadAd(adRequest2);
 
         GameOverVibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
 
