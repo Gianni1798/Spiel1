@@ -14,6 +14,10 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 import java.util.Set;
 
 
@@ -29,17 +33,25 @@ public class Startseite extends AppCompatActivity implements View.OnClickListene
     Button button3;
     Button button4;
 
+    private AdView adView_Startseite;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713"); //HIER KOMMT DIE ID REIN
+
         btn_SpielStarten = (Button) findViewById(R.id.btn_SpielStarten);
         btn_SpielStarten.setOnClickListener(this);
 
         btn_Einstellungen = (Button) findViewById(R.id.btn_Einstellungen);
         btn_Einstellungen.setOnClickListener(this);
+
+        adView_Startseite = (AdView) findViewById(R.id.adView_Startseite);
+        AdRequest adRequest1 = new AdRequest.Builder().build();
+        adView_Startseite.loadAd(adRequest1);
 
         SharedPreferences colorCheck = this.getSharedPreferences("number", 0);
         int colorCheckNumber = colorCheck.getInt("number", 0);
