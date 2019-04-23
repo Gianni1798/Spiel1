@@ -53,7 +53,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
     Vibrator scoreRow;
     int scoreRowCount;
     MediaPlayer soundFeedbackScoreRow;
-    private InterstitialAd interstitialAd;
+    private InterstitialAd interstitialAd_Hauptseite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -82,6 +82,12 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
         SharedPreferences colorCheck = this.getSharedPreferences("number", 0);
         int colorCheckNumber = colorCheck.getInt("number", 0);
+
+        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713"); //HIER KOMMT DIE INTERSTITIAL-ID REIN
+
+        interstitialAd_Hauptseite = new InterstitialAd(this);
+        interstitialAd_Hauptseite.setAdUnitId("ca-app-pub-3940256099942544/1033173712"); //HIER KOMMT DIE INTERSTITIAL-ID REIN
+        interstitialAd_Hauptseite.loadAd(new AdRequest.Builder().build());
 
     }
 
@@ -767,6 +773,9 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
             button4.setEnabled(false);
 
             pause_onStart = false;
+
+            if(interstitialAd_Hauptseite.isLoaded())
+                interstitialAd_Hauptseite.show();
 
         }
         else
