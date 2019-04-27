@@ -53,7 +53,8 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
     Vibrator scoreRow;
     int scoreRowCount;
     MediaPlayer soundFeedbackScoreRow;
-    private InterstitialAd interstitialAd_Hauptseite;
+    private InterstitialAd interstitialAd_Hauptklasse;
+    private AdView adView_Hauptklasse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -84,10 +85,15 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         int colorCheckNumber = colorCheck.getInt("number", 0);
 
         MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713"); //HIER KOMMT DIE INTERSTITIAL-ID REIN
+        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713"); //HIER KOMMT DIE BANNER-ID REIN
 
-        interstitialAd_Hauptseite = new InterstitialAd(this);
-        interstitialAd_Hauptseite.setAdUnitId("ca-app-pub-3940256099942544/1033173712"); //HIER KOMMT DIE INTERSTITIAL-ID REIN
-        interstitialAd_Hauptseite.loadAd(new AdRequest.Builder().build());
+        interstitialAd_Hauptklasse = new InterstitialAd(this);
+        interstitialAd_Hauptklasse.setAdUnitId("ca-app-pub-3940256099942544/1033173712"); //HIER KOMMT DIE INTERSTITIAL-ID REIN
+        interstitialAd_Hauptklasse.loadAd(new AdRequest.Builder().build());
+
+        adView_Hauptklasse = (AdView) findViewById(R.id.adView_Hauptklasse);
+        AdRequest adRequest2 = new AdRequest.Builder().build();
+        adView_Hauptklasse.loadAd(adRequest2);
 
     }
 
@@ -774,8 +780,8 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
             pause_onStart = false;
 
-            if(interstitialAd_Hauptseite.isLoaded())
-                interstitialAd_Hauptseite.show();
+            if(interstitialAd_Hauptklasse.isLoaded())
+                interstitialAd_Hauptklasse.show();
 
         }
         else
