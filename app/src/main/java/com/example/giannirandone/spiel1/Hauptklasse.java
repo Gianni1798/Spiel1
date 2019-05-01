@@ -8,12 +8,12 @@ import android.os.CountDownTimer;
 import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Layout;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
@@ -27,7 +27,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
     Button button3;
     Button button4;
     Button btn_SpielStarten;
-    int zufallszahl;
+    int zufallszahl1;
     String zufallszahlString;
     int zufallszahl2;
     String zufallszahlString2;
@@ -79,7 +79,6 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         button4.setOnClickListener((View.OnClickListener)this);
 
         scoreRow = (Vibrator)getSystemService(VIBRATOR_SERVICE);
-        //final MediaPlayer soundFeedbackScoreRow = MediaPlayer.create(this, R.raw.soundtest1);
 
         SharedPreferences colorCheck = this.getSharedPreferences("number", 0);
         int colorCheckNumber = colorCheck.getInt("number", 0);
@@ -94,7 +93,6 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         adView_Hauptklasse = (AdView) findViewById(R.id.adView_Hauptklasse);
         AdRequest adRequest2 = new AdRequest.Builder().build();
         adView_Hauptklasse.loadAd(adRequest2);
-
     }
 
     @Override
@@ -144,8 +142,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
         SharedPreferences colorCheck = this.getSharedPreferences("number", 0);
         int colorCheckNumber = colorCheck.getInt("number", 0);
-            loadBackgroundColor(colorCheckNumber);
-
+        loadBackgroundColor(colorCheckNumber);
 
     }
 
@@ -174,14 +171,12 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
     public void onClick (View v)
     {
 
-
         switch (v.getId()) {
 
 
             case R.id.button1:
 
-
-                if (zufallszahl > zufallszahl2 && zufallszahl > zufallszahl3 && zufallszahl > zufallszahl4) {
+                if (zufallszahl1 > zufallszahl2 && zufallszahl1 > zufallszahl3 && zufallszahl1 > zufallszahl4) {
 
 
                             //Score erhöhen:
@@ -205,22 +200,20 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
                 }
 
 
-                zufallszahl = 0;
+                zufallszahl1 = 0;
                 zufallszahl2 = 0;
                 zufallszahl3 = 0;
                 zufallszahl4 = 0;
 
                 generateNumbers(round);
                 showIfGameOverWithCountLife();
-                changeButtonColor();
 
 
                 break;
 
             case R.id.button2:
 
-
-                if (zufallszahl2 > zufallszahl && zufallszahl2 > zufallszahl3 && zufallszahl2 > zufallszahl4) {
+                if (zufallszahl2 > zufallszahl1 && zufallszahl2 > zufallszahl3 && zufallszahl2 > zufallszahl4) {
 
                             //Score erhöhen:
                             score++;
@@ -242,21 +235,20 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
                 }
 
-                zufallszahl = 0;
+                zufallszahl1 = 0;
                 zufallszahl2 = 0;
                 zufallszahl3 = 0;
                 zufallszahl4 = 0;
 
                 generateNumbers(round);
                 showIfGameOverWithCountLife();
-                changeButtonColor();
 
 
                 break;
 
             case R.id.button3:
 
-                if (zufallszahl3 > zufallszahl && zufallszahl3 > zufallszahl2 && zufallszahl3 > zufallszahl4) {
+                if (zufallszahl3 > zufallszahl1 && zufallszahl3 > zufallszahl2 && zufallszahl3 > zufallszahl4) {
 
                             //Score erhöhen:
                             score++;
@@ -277,21 +269,20 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
                     Log.i(Hauptklasse.class.getSimpleName(), "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX3");
                 }
 
-                zufallszahl = 0;
+                zufallszahl1 = 0;
                 zufallszahl2 = 0;
                 zufallszahl3 = 0;
                 zufallszahl4 = 0;
 
                 generateNumbers(round);
                 showIfGameOverWithCountLife();
-                changeButtonColor();
 
 
                 break;
 
             case R.id.button4:
 
-                if (zufallszahl4 > zufallszahl && zufallszahl4 > zufallszahl2 && zufallszahl4 > zufallszahl3) {
+                if (zufallszahl4 > zufallszahl1 && zufallszahl4 > zufallszahl2 && zufallszahl4 > zufallszahl3) {
 
                             //Score erhöhen:
                             score++;
@@ -311,14 +302,13 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
                     Log.i(Hauptklasse.class.getSimpleName(), "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX4");
                 }
 
-                zufallszahl = 0;
+                zufallszahl1 = 0;
                 zufallszahl2 = 0;
                 zufallszahl3 = 0;
                 zufallszahl4 = 0;
 
                 generateNumbers(round);
                 showIfGameOverWithCountLife();
-                changeButtonColor();
 
                 break;
 
@@ -348,8 +338,8 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         }
         if (roundNumber>=5)
         {
-            changeLimit(35);
-            SameNumbers(35);
+            changeLimit(30);
+            SameNumbers(30);
         }
         if (roundNumber>=8)
         {
@@ -358,8 +348,8 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         }
         if (roundNumber>=15)
         {
-            changeLimit(250);
-            SameNumbers(250);
+            changeLimit(150);
+            SameNumbers(150);
         }
         if (roundNumber>=20)
         {
@@ -373,13 +363,23 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         }
         if (roundNumber>=30)
         {
-            changeLimit(9999);
-            SameNumbers(9999);
+            changeLimit(1999);
+            SameNumbers(1999);
         }
         if (roundNumber>=40)
         {
-            changeLimit(24999);
-            SameNumbers(24999);
+            changeLimit(4999);
+            SameNumbers(4999);
+        }
+        if (roundNumber>=50)
+        {
+            changeLimit(19999);
+            SameNumbers(19999);
+        }
+        if (roundNumber>=55)
+        {
+            changeLimit(49999);
+            SameNumbers(49999);
         }
         if (roundNumber>=50)
         {
@@ -388,82 +388,11 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         }
     }
 
-    public void changeButtonColor()
-    {
-
-        /*
-        if(round<5)
-        {
-
-            button1.setBackgroundColor(Color.GRAY);
-            button2.setBackgroundColor(Color.GRAY);
-            button3.setBackgroundColor(Color.GRAY);
-            button4.setBackgroundColor(Color.GRAY);
-        }
-        */
-
-        if (round>=5)
-        {
-            /*
-            button1.setBackgroundColor(Color.BLUE);
-            button2.setBackgroundColor(Color.BLUE);
-            button3.setBackgroundColor(Color.BLUE);
-            button4.setBackgroundColor(Color.BLUE);
-*/
-        }
-        if (round>=8)
-        {
-/*
-            button1.setBackgroundColor(Color.BLUE);
-            button2.setBackgroundColor(Color.BLUE);
-            button3.setBackgroundColor(Color.BLUE);
-            button4.setBackgroundColor(Color.BLUE);
-*/
-        }
-        if (round>=15)
-        {
-            /*
-            button1.setBackgroundColor(Color.YELLOW);
-            button2.setBackgroundColor(Color.YELLOW);
-            button3.setBackgroundColor(Color.YELLOW);
-            button4.setBackgroundColor(Color.YELLOW);
-*/
-        }
-        if (round>=20)
-        {
-            /*
-            button1.setBackgroundColor(Color.RED);
-            button2.setBackgroundColor(Color.RED);
-            button3.setBackgroundColor(Color.RED);
-            button4.setBackgroundColor(Color.RED);
-*/
-        }
-        if (round>=25)
-        {
-            changeLimit(999);
-            SameNumbers(999);
-        }
-        if (round>=30)
-        {
-            changeLimit(9999);
-            SameNumbers(9999);
-        }
-        if (round>=40)
-        {
-            changeLimit(24999);
-            SameNumbers(24999);
-        }
-        if (round>=50)
-        {
-            changeLimit(100000);
-            SameNumbers(100000);
-        }
-    }
 
     public void changeLimit(int limit)
     {
-        zufallszahl = (int) (Math.random() * limit) + 1;
-        zufallszahlString = Integer.toString(zufallszahl);
+        zufallszahl1 = (int) (Math.random() * limit) + 1;
+        zufallszahlString = Integer.toString(zufallszahl1);
         button1.setText(zufallszahlString);
 
         zufallszahl2 = (int) (Math.random() * limit) + 1;
@@ -492,36 +421,36 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
         //Zufallszahl 1:
 
-        while (zufallszahl == zufallszahl2)
+        while (zufallszahl1 == zufallszahl2)
         {
             //generiere Zufallszahl neu
             zufallszahl2 = (int) (Math.random() * limitOfRound) + 1;
 
-            if(!(zufallszahl == zufallszahl2))
+            if(!(zufallszahl1 == zufallszahl2))
             {
                 zufallszahlString2 = Integer.toString(zufallszahl2);
                 button2.setText(zufallszahlString2);
             }
         }
 
-        while (zufallszahl == zufallszahl3)
+        while (zufallszahl1 == zufallszahl3)
         {
             //generiere Zufallszahl neu
             zufallszahl3 = (int) (Math.random() * limitOfRound) + 1;
 
-            if (!(zufallszahl == zufallszahl3))
+            if (!(zufallszahl1 == zufallszahl3))
             {
                 zufallszahlString3 = Integer.toString(zufallszahl3);
                 button3.setText(zufallszahlString3);
             }
         }
 
-        while (zufallszahl == zufallszahl4)
+        while (zufallszahl1 == zufallszahl4)
         {
             //generiere Zufallszahl neu
             zufallszahl4 = (int) (Math.random() * limitOfRound) + 1;
 
-            if(!(zufallszahl == zufallszahl4))
+            if(!(zufallszahl1 == zufallszahl4))
             {
                 zufallszahlString4 = Integer.toString(zufallszahl4);
                 button4.setText(zufallszahlString4);
@@ -532,14 +461,14 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         //Zufallszahl 2:
 
 
-        while (zufallszahl2 == zufallszahl)
+        while (zufallszahl2 == zufallszahl1)
         {
             //generiere Zufallszahl neu
-            zufallszahl = (int) (Math.random() * limitOfRound) + 1;
+            zufallszahl1 = (int) (Math.random() * limitOfRound) + 1;
 
-            if (!(zufallszahl2 == zufallszahl))
+            if (!(zufallszahl2 == zufallszahl1))
             {
-                zufallszahlString = Integer.toString(zufallszahl);
+                zufallszahlString = Integer.toString(zufallszahl1);
                 button1.setText(zufallszahlString);
             }
         }
@@ -571,14 +500,14 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
         //Zufallszahl 3:
 
-        while (zufallszahl3 == zufallszahl)
+        while (zufallszahl3 == zufallszahl1)
         {
             //generiere Zufallszahl neu
-            zufallszahl = (int) (Math.random() * limitOfRound) + 1;
+            zufallszahl1 = (int) (Math.random() * limitOfRound) + 1;
 
-            if (!(zufallszahl3 == zufallszahl))
+            if (!(zufallszahl3 == zufallszahl1))
             {
-                zufallszahlString = Integer.toString(zufallszahl);
+                zufallszahlString = Integer.toString(zufallszahl1);
                 button1.setText(zufallszahlString);
             }
         }
@@ -609,14 +538,14 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
         //Zufallszahl 4:
 
-        while (zufallszahl4 == zufallszahl)
+        while (zufallszahl4 == zufallszahl1)
         {
             //generiere Zufallszahl neu
-            zufallszahl = (int) (Math.random() * limitOfRound) + 1;
+            zufallszahl1 = (int) (Math.random() * limitOfRound) + 1;
 
-            if (!(zufallszahl4 == zufallszahl))
+            if (!(zufallszahl4 == zufallszahl1))
             {
-                zufallszahlString = Integer.toString(zufallszahl);
+                zufallszahlString = Integer.toString(zufallszahl1);
                 button1.setText(zufallszahlString);
             }
         }
@@ -741,22 +670,18 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
     public void timeFinished()
     {
-
         if (counter == 0)
         {
             counter = counter-0;
             timer.cancel();
             timer.onFinish();
         }
-
     }
-
-
     //Pause-Button
+
 
     public void PausePushed (View p)
     {
-
 
         if (pause_check == false)
         {
@@ -782,11 +707,10 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
             if(interstitialAd_Hauptklasse.isLoaded())
                 interstitialAd_Hauptklasse.show();
-
         }
+
         else
         {
-
 
             pause_check = false;
             pause_btn.setText("II");
@@ -806,13 +730,8 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
             button4.setCursorVisible(true);
             button4.setEnabled(true);
 
-
         }
 
-
     }
-
     //Ende Pause-Button
-
-
 }

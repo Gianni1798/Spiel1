@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
@@ -28,6 +29,7 @@ public class Startseite extends AppCompatActivity implements View.OnClickListene
 
     Button btn_SpielStarten;
     Button btn_Einstellungen;
+    ImageView imageView;
 
     Button button1;
     Button button2;
@@ -49,6 +51,9 @@ public class Startseite extends AppCompatActivity implements View.OnClickListene
 
         btn_Einstellungen = (Button) findViewById(R.id.btn_Einstellungen);
         btn_Einstellungen.setOnClickListener(this);
+
+        imageView = (ImageView) findViewById(R.id.imageView);
+        imageView.setOnClickListener(this);
 
         adView_Startseite = (AdView) findViewById(R.id.adView_Startseite);
         AdRequest adRequest1 = new AdRequest.Builder().build();
@@ -100,6 +105,11 @@ public class Startseite extends AppCompatActivity implements View.OnClickListene
 
             startActivity(new Intent(Startseite.this, Settings.class));
 
+        }
+
+        if (e.equals(imageView))
+        {
+            startActivity(new Intent(Startseite.this, Hauptklasse.class));
         }
 
     }
