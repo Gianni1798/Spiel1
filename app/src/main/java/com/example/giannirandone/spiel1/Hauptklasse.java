@@ -71,7 +71,9 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         textView1 = (TextView) findViewById(R.id.textView1);
         textView2 = (TextView) findViewById(R.id.textView2);
         countLifeAusgabe = (TextView) findViewById(R.id.countLifeAusgabe);
+        countLifeAusgabe.setBackgroundColor(Color.rgb(240,240,240));
         pause_btn = (Button) findViewById(R.id.pause_btn);
+        pause_btn.setBackgroundColor(Color.rgb(240,240,240));
 
         button1.setOnClickListener((View.OnClickListener)this);
         button2.setOnClickListener((View.OnClickListener)this);
@@ -363,28 +365,58 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         }
         if (roundNumber>=30)
         {
-            changeLimit(1999);
-            SameNumbers(1999);
+            changeLimit(1499);
+            SameNumbers(1499);
+        }
+        if (roundNumber>=35)
+        {
+            changeLimit(2499);
+            SameNumbers(2499);
         }
         if (roundNumber>=40)
         {
-            changeLimit(4999);
-            SameNumbers(4999);
+            changeLimit(9999);
+            SameNumbers(9999);
+        }
+        if (roundNumber>=45)
+        {
+            changeLimit(14999);
+            SameNumbers(14999);
         }
         if (roundNumber>=50)
         {
-            changeLimit(19999);
-            SameNumbers(19999);
+            changeLimit(39999);
+            SameNumbers(39999);
         }
         if (roundNumber>=55)
         {
-            changeLimit(49999);
-            SameNumbers(49999);
+            changeLimit(99999);
+            SameNumbers(99999);
         }
-        if (roundNumber>=50)
+        if (roundNumber>=60)
         {
-            changeLimit(100000);
-            SameNumbers(100000);
+            changeLimit(149999);
+            SameNumbers(149999);
+        }
+        if (roundNumber>=75)
+        {
+            changeLimit(199999);
+            SameNumbers(199999);
+        }
+        if (roundNumber>=80)
+        {
+            changeLimit(499999);
+            SameNumbers(499999);
+        }
+        if (roundNumber>=95)
+        {
+            changeLimit(999999);
+            SameNumbers(999999);
+        }
+        if (roundNumber>=100)
+        {
+            changeLimit(100000000);
+            SameNumbers(100000000);
         }
     }
 
