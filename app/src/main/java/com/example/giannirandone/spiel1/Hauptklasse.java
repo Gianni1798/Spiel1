@@ -93,8 +93,8 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         interstitialAd_Hauptklasse.loadAd(new AdRequest.Builder().build());
 
         adView_Hauptklasse = (AdView) findViewById(R.id.adView_Hauptklasse);
-        AdRequest adRequest2 = new AdRequest.Builder().build();
-        adView_Hauptklasse.loadAd(adRequest2);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView_Hauptklasse.loadAd(adRequest);
     }
 
     @Override
@@ -762,6 +762,8 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
             button4.setCursorVisible(true);
             button4.setEnabled(true);
 
+            AdRequest  adRequestNew = new AdRequest.Builder().build();
+            interstitialAd_Hauptklasse.loadAd(adRequestNew);
         }
 
     }
