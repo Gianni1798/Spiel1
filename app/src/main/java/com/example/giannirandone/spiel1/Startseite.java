@@ -29,6 +29,7 @@ public class Startseite extends AppCompatActivity implements View.OnClickListene
 
     Button btn_SpielStarten;
     Button btn_Einstellungen;
+    Button btn_Imprint;
     ImageView imageView;
 
     Button button1;
@@ -51,6 +52,9 @@ public class Startseite extends AppCompatActivity implements View.OnClickListene
 
         btn_Einstellungen = (Button) findViewById(R.id.btn_Einstellungen);
         btn_Einstellungen.setOnClickListener(this);
+
+        btn_Imprint = (Button) findViewById(R.id.btn_Imprint);
+        btn_Imprint.setOnClickListener(this);
 
         imageView = (ImageView) findViewById(R.id.imageView);
         imageView.setOnClickListener(this);
@@ -101,17 +105,13 @@ public class Startseite extends AppCompatActivity implements View.OnClickListene
         }
 
         if (e.equals(btn_Einstellungen))
-        {
-
             startActivity(new Intent(Startseite.this, Settings.class));
 
-        }
-
         if (e.equals(imageView))
-        {
             startActivity(new Intent(Startseite.this, Hauptklasse.class));
-        }
 
+        if(e.equals(btn_Imprint))
+            startActivity(new Intent(Startseite.this, Imprint.class));
     }
 
 }

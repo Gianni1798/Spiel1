@@ -2,9 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.giannirandone.spiel1">
 
-    <uses-permission
-        android:name="android.permission.VIBRATE"/>
-
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -13,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Imprint"></activity>
         <activity android:name=".Startseite">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,29 +24,22 @@
         <activity
             android:name=".Settings"
             android:label="@string/title_activity_settings"
-            android:theme="@style/AppTheme" />
-
-        <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+            android:theme="@style/AppTheme" /> <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713"/> //HIER KOMMT DIE BANNER-ID REIN (Startseite)
-
+            android:value="ca-app-pub-3940256099942544~3347511713" />
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713"/> //HIER KOMMT DIE BANNER-ID REIN (Settings)
-
+            android:value="ca-app-pub-3940256099942544~3347511713" />
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713"/> //HIER KOMMT DIE BANNER-ID REIN (GameOverAusgabeseite)
-        <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+            android:value="ca-app-pub-3940256099942544~3347511713" /> <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713"/> //HIER KOMMT DIE INTERSTITIAL-ID REIN (Hauptklasse)
-        <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+            android:value="ca-app-pub-3940256099942544~3347511713" /> <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713"/> //HIER KOMMT DIE BANNER-ID REIN (Hauptklasse)
-
+            android:value="ca-app-pub-3940256099942544~3347511713" />
     </application>
 
 </manifest>
