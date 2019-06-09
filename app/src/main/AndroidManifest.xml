@@ -11,38 +11,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.giannirandone.highestnumber.Startseite">
+        <activity android:name=".MoreInformations"></activity>
+        <activity android:name=".Startseite">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.giannirandone.highestnumber.Hauptklasse" />
-        <activity android:name="com.example.giannirandone.highestnumber.GameOverAusgabeseite" />
+        <activity android:name=".Hauptklasse" />
+        <activity android:name=".GameOverAusgabeseite" />
         <activity
-            android:name="com.example.giannirandone.highestnumber.Settings"
+            android:name=".Settings"
             android:label="@string/title_activity_settings"
             android:theme="@style/AppTheme" />
-        <!--
-        Folgendes dient der Einblendung von Werbung, die ich hier ausgeschaltet habe:
-
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713" />
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713" />
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713" />
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713" />
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713" />
-            -->
     </application>
 
 </manifest>
