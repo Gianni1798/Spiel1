@@ -1,4 +1,4 @@
-package com.example.giannirandone.spiel1;
+package com.example.giannirandone.highestnumber;
 
 import org.junit.Test;
 

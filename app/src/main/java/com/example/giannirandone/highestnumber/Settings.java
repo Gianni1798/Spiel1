@@ -1,5 +1,6 @@
-package com.example.giannirandone.spiel1;
+package com.example.giannirandone.highestnumber;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
@@ -11,9 +12,6 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
 
 public class Settings extends AppCompatActivity {
 
@@ -60,12 +58,22 @@ public class Settings extends AppCompatActivity {
                     editor.putInt("number", colorStatus);
                     editor.commit();
                     viewSettings.setBackgroundColor(Color.rgb(176,196,222));
+                    Context contextBlue = getApplicationContext();
+                    int durationBlue = Toast.LENGTH_SHORT;
+                    CharSequence text = "Theme changed to blue.";
+                    Toast t1 = Toast.makeText(contextBlue,text, durationBlue);
+                    t1.show();
                 }else
                 {
                     colorStatus = 0;
                     editor.putInt("number", colorStatus);
                     editor.commit();
                     viewSettings.setBackgroundColor(Color.WHITE);
+                    Context contextWhite = getApplicationContext();
+                    int durationWhite = Toast.LENGTH_SHORT;
+                    CharSequence text = "Theme changed to white.";
+                    Toast t2 = Toast.makeText(contextWhite,text, durationWhite);
+                    t2.show();
                 }
 
                 Log.i(Settings.class.getSimpleName(), "SWITCH ONCHECKED 2");

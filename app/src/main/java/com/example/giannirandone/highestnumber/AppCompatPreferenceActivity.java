@@ -1,4 +1,4 @@
-package com.example.giannirandone.spiel1;
+package com.example.giannirandone.highestnumber;
 
 import android.content.res.Configuration;
 import android.os.Bundle;

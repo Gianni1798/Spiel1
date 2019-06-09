@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.giannirandone.spiel1">
+    package="com.example.giannirandone.highestnumber">
 
     <uses-permission android:name="android.permission.VIBRATE" />
 
@@ -11,17 +11,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Startseite">
+        <activity android:name="com.example.giannirandone.highestnumber.Startseite">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Hauptklasse" />
-        <activity android:name=".GameOverAusgabeseite" />
+        <activity android:name="com.example.giannirandone.highestnumber.Hauptklasse" />
+        <activity android:name="com.example.giannirandone.highestnumber.GameOverAusgabeseite" />
         <activity
-            android:name=".Settings"
+            android:name="com.example.giannirandone.highestnumber.Settings"
             android:label="@string/title_activity_settings"
             android:theme="@style/AppTheme" />
         <!--
