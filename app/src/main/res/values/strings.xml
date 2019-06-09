@@ -79,5 +79,5 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="title_moreInformation"><b>What is the game principle?</b></string>
-    <string name="text_moreInformation">In this game, the user has the task of selecting the highest of the numbers displayed. If you do this, you get a point, if you make a mistake, you get a life deducted. The game ends either after 60 seconds or when you have used up all your lives. \n\nI hope you enjoy this simple game!</string>
+    <string name="text_moreInformation">In this game, you have the task of selecting the highest of the numbers displayed. If you do this, you get a point, if you make a mistake, you get a life deducted. The game ends either after 60 seconds or when you have used up all your lives. \n\nI hope you enjoy this simple game!</string>
 </resources>
