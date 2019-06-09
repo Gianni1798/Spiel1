@@ -29,7 +29,6 @@ public class Startseite extends AppCompatActivity implements View.OnClickListene
 
     Button btn_SpielStarten;
     Button btn_Einstellungen;
-    Button btn_Imprint;
     ImageView imageView;
 
     Button button1;
@@ -37,7 +36,7 @@ public class Startseite extends AppCompatActivity implements View.OnClickListene
     Button button3;
     Button button4;
 
-    private AdView adView_Startseite;
+    //private AdView adView_Startseite;
 
 
     @Override
@@ -45,7 +44,7 @@ public class Startseite extends AppCompatActivity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713"); //HIER KOMMT DIE BANNER-ID REIN
+        //MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713"); //HIER KOMMT DIE BANNER-ID REIN
 
         btn_SpielStarten = (Button) findViewById(R.id.btn_SpielStarten);
         btn_SpielStarten.setOnClickListener(this);
@@ -53,22 +52,17 @@ public class Startseite extends AppCompatActivity implements View.OnClickListene
         btn_Einstellungen = (Button) findViewById(R.id.btn_Einstellungen);
         btn_Einstellungen.setOnClickListener(this);
 
-        btn_Imprint = (Button) findViewById(R.id.btn_Imprint);
-        btn_Imprint.setOnClickListener(this);
+        //imageView = (ImageView) findViewById(R.id.imageView);
+        //imageView.setOnClickListener(this);
 
-        imageView = (ImageView) findViewById(R.id.imageView);
-        imageView.setOnClickListener(this);
-
-        adView_Startseite = (AdView) findViewById(R.id.adView_Startseite);
-        AdRequest adRequest1 = new AdRequest.Builder().build();
-        adView_Startseite.loadAd(adRequest1);
+        //adView_Startseite = (AdView) findViewById(R.id.adView_Startseite);
+        //AdRequest adRequest1 = new AdRequest.Builder().build();
+        //adView_Startseite.loadAd(adRequest1);
 
         SharedPreferences colorCheck = this.getSharedPreferences("number", 0);
         int colorCheckNumber = colorCheck.getInt("number", 0);
         loadBackgroundColor(colorCheckNumber);
     }
-
-
 
     protected void onStart()
     {
@@ -83,35 +77,21 @@ public class Startseite extends AppCompatActivity implements View.OnClickListene
         View viewStartseite = this.getWindow().getDecorView();
 
         if (colorCheckNumber == 0)
-        {
             viewStartseite.setBackgroundColor(Color.WHITE);
-        }else if (colorCheckNumber == 1)
-        {
+        else if (colorCheckNumber == 1)
             viewStartseite.setBackgroundColor(Color.rgb(176,196,222));
-        }
     }
 
     public void onClick (View e)
     {
-
         if (e.equals(btn_SpielStarten))
-        {
-
-            Intent i = new Intent(Startseite.this, Hauptklasse.class);
-            //i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(i);
-            //finish();
-
-        }
+            startActivity(new Intent(Startseite.this, Hauptklasse.class));
 
         if (e.equals(btn_Einstellungen))
             startActivity(new Intent(Startseite.this, Settings.class));
 
         if (e.equals(imageView))
             startActivity(new Intent(Startseite.this, Hauptklasse.class));
-
-        if(e.equals(btn_Imprint))
-            startActivity(new Intent(Startseite.this, Imprint.class));
     }
 
 }

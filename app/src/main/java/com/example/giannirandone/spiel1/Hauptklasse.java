@@ -53,8 +53,8 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
     Vibrator scoreRow;
     int scoreRowCount;
     MediaPlayer soundFeedbackScoreRow;
-    private InterstitialAd interstitialAd_Hauptklasse;
-    private AdView adView_Hauptklasse;
+    //private InterstitialAd interstitialAd_Hauptklasse;
+    //private AdView adView_Hauptklasse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -85,16 +85,16 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
         SharedPreferences colorCheck = this.getSharedPreferences("number", 0);
         int colorCheckNumber = colorCheck.getInt("number", 0);
 
-        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713"); //HIER KOMMT DIE INTERSTITIAL-ID REIN
-        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713"); //HIER KOMMT DIE BANNER-ID REIN
+        //MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713"); //HIER KOMMT DIE INTERSTITIAL-ID REIN
+        //MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713"); //HIER KOMMT DIE BANNER-ID REIN
 
-        interstitialAd_Hauptklasse = new InterstitialAd(this);
-        interstitialAd_Hauptklasse.setAdUnitId("ca-app-pub-3940256099942544/1033173712"); //HIER KOMMT DIE INTERSTITIAL-ID REIN
-        interstitialAd_Hauptklasse.loadAd(new AdRequest.Builder().build());
+        //interstitialAd_Hauptklasse = new InterstitialAd(this);
+        //interstitialAd_Hauptklasse.setAdUnitId("ca-app-pub-3940256099942544/1033173712"); //HIER KOMMT DIE INTERSTITIAL-ID REIN
+        //interstitialAd_Hauptklasse.loadAd(new AdRequest.Builder().build());
 
-        adView_Hauptklasse = (AdView) findViewById(R.id.adView_Hauptklasse);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        adView_Hauptklasse.loadAd(adRequest);
+        //adView_Hauptklasse = (AdView) findViewById(R.id.adView_Hauptklasse);
+        //AdRequest adRequest = new AdRequest.Builder().build();
+        //adView_Hauptklasse.loadAd(adRequest);
     }
 
     @Override
@@ -737,8 +737,8 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
 
             pause_onStart = false;
 
-            if(interstitialAd_Hauptklasse.isLoaded())
-                interstitialAd_Hauptklasse.show();
+            //if(interstitialAd_Hauptklasse.isLoaded())
+            //    interstitialAd_Hauptklasse.show();
         }
 
         else
@@ -762,8 +762,8 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
             button4.setCursorVisible(true);
             button4.setEnabled(true);
 
-            AdRequest  adRequestNew = new AdRequest.Builder().build();
-            interstitialAd_Hauptklasse.loadAd(adRequestNew);
+            //AdRequest  adRequestNew = new AdRequest.Builder().build();
+            //interstitialAd_Hauptklasse.loadAd(adRequestNew);
         }
 
     }

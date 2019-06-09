@@ -19,18 +19,18 @@ public class Settings extends AppCompatActivity {
 
     TextView settingsTextViewHighscoreAusgabe;
     Switch switch_Color;
-    AdView adView_Settings;
+    //AdView adView_Settings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        adView_Settings = (AdView) findViewById(R.id.adView_Settings);
+        //adView_Settings = (AdView) findViewById(R.id.adView_Settings);
 
-        MobileAds.initialize(this, "ca-app-pub-3940256099942544/6300978111");
-        AdRequest adRequest3 = new AdRequest.Builder().build();
-        adView_Settings.loadAd(adRequest3);
+        //MobileAds.initialize(this, "ca-app-pub-3940256099942544/6300978111");
+        //AdRequest adRequest3 = new AdRequest.Builder().build();
+        //adView_Settings.loadAd(adRequest3);
 
         settingsTextViewHighscoreAusgabe = (TextView) findViewById(R.id.settingsTextViewHighscoreAusgabe);
         switch_Color = (Switch) findViewById(R.id.switch_Color);

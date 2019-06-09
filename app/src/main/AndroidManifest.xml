@@ -11,7 +11,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Imprint"></activity>
         <activity android:name=".Startseite">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,7 +23,10 @@
         <activity
             android:name=".Settings"
             android:label="@string/title_activity_settings"
-            android:theme="@style/AppTheme" /> <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+            android:theme="@style/AppTheme" />
+        <!--
+        Folgendes dient der Einblendung von Werbung, die ich hier ausgeschaltet habe:
+
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-3940256099942544~3347511713" />
@@ -33,13 +35,14 @@
             android:value="ca-app-pub-3940256099942544~3347511713" />
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713" /> <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713" /> <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+            android:value="ca-app-pub-3940256099942544~3347511713" />
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-3940256099942544~3347511713" />
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713" />
+            -->
     </application>
 
 </manifest>
