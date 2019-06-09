@@ -52,7 +52,7 @@ public class Hauptklasse extends AppCompatActivity implements View.OnClickListen
     int round = 1;
     Vibrator scoreRow;
     int scoreRowCount;
-    MediaPlayer soundFeedbackScoreRow;
+    //MediaPlayer soundFeedbackScoreRow;
     //private InterstitialAd interstitialAd_Hauptklasse;
     //private AdView adView_Hauptklasse;
 
