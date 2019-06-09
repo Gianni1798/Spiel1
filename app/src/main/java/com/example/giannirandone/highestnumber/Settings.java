@@ -68,7 +68,7 @@ public class Settings extends AppCompatActivity {
                     viewSettings.setBackgroundColor(Color.rgb(176,196,222));
                     Context contextBlue = getApplicationContext();
                     int durationBlue = Toast.LENGTH_SHORT;
-                    CharSequence text = "Theme changed to blue.";
+                    CharSequence text = "Theme changed to 'water-blue'";
                     Toast t1 = Toast.makeText(contextBlue,text, durationBlue);
                     t1.show();
                 }else
@@ -79,7 +79,7 @@ public class Settings extends AppCompatActivity {
                     viewSettings.setBackgroundColor(Color.WHITE);
                     Context contextWhite = getApplicationContext();
                     int durationWhite = Toast.LENGTH_SHORT;
-                    CharSequence text = "Theme changed to white.";
+                    CharSequence text = "Theme changed to 'pearl-white'";
                     Toast t2 = Toast.makeText(contextWhite,text, durationWhite);
                     t2.show();
                 }
