@@ -50,6 +50,8 @@ public class Settings extends AppCompatActivity {
         Log.i(Settings.class.getSimpleName(),"HIGHSCORE GESETZT");
         View viewSettings = this.getWindow().getDecorView();
 
+
+
         switch_Color.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -58,32 +60,26 @@ public class Settings extends AppCompatActivity {
                 int colorStatus = 0;
 
                 SharedPreferences colorStatusNumber = getSharedPreferences("number", colorStatus);
-                SharedPreferences.Editor editor = colorStatusNumber.edit();
+                SharedPreferences.Editor editorColorStatus = colorStatusNumber.edit();
 
                 if (b)
                 {
                     colorStatus = 1;
-                    editor.putInt("number", colorStatus);
-                    editor.commit();
+                    editorColorStatus.putInt("number", colorStatus);
+                    editorColorStatus.commit();
                     viewSettings.setBackgroundColor(Color.rgb(176,196,222));
-                    Context contextBlue = getApplicationContext();
-                    int durationBlue = Toast.LENGTH_SHORT;
-                    CharSequence text = "Theme changed to 'water-blue'";
-                    Toast t1 = Toast.makeText(contextBlue,text, durationBlue);
-                    t1.show();
                 }else
                 {
                     colorStatus = 0;
-                    editor.putInt("number", colorStatus);
-                    editor.commit();
+                    editorColorStatus.putInt("number", colorStatus);
+                    editorColorStatus.commit();
                     viewSettings.setBackgroundColor(Color.WHITE);
                     Context contextWhite = getApplicationContext();
                     int durationWhite = Toast.LENGTH_SHORT;
-                    CharSequence text = "Theme changed to 'pearl-white'";
-                    Toast t2 = Toast.makeText(contextWhite,text, durationWhite);
-                    t2.show();
+                    CharSequence text = "Theme changed back to default";
+                    Toast t1 = Toast.makeText(contextWhite,text, durationWhite);
+                    t1.show();
                 }
-
                 Log.i(Settings.class.getSimpleName(), "SWITCH ONCHECKED 2");
             }
         });

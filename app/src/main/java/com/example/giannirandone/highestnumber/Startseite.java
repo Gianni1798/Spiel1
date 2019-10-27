@@ -34,8 +34,8 @@ public class Startseite extends AppCompatActivity implements View.OnClickListene
         btn_Einstellungen = (Button) findViewById(R.id.btn_Einstellungen);
         btn_Einstellungen.setOnClickListener(this);
 
-        //imageView = (ImageView) findViewById(R.id.imageView);
-        //imageView.setOnClickListener(this);
+        imageView = (ImageView) findViewById(R.id.imageView);
+        imageView.setOnClickListener(this);
 
         //adView_Startseite = (AdView) findViewById(R.id.adView_Startseite);
         //AdRequest adRequest1 = new AdRequest.Builder().build();
